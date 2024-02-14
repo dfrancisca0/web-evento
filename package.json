@@ -1,0 +1,20 @@
+{
+  "name": "web-evento",
+  "version": "1.0.0",
+  "description": "Web para un evento de actividades varias",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/dfrancisca0/web-evento"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "^17.1.0",
+    "vite": "^5.1.1"
+  }
+}
