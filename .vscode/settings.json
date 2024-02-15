@@ -11,6 +11,6 @@
       "typescript",
       "typescriptreact",
       "vue",
-      "svelte",
+      "svelte"
     ],
   }
