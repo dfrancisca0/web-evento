@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jornadas</title>
   <script type="module" src="./src/index.js"></script>
-  <link  rel="stylesheet" href="./style/app.css">
+  <link rel="stylesheet" href="./style/app.css">
 </head>
+
 <body>
   <header></header>
   <main>
 
     <div class="hero">
-      <div>
-        <picture src="./public/son-sampol.jpg" alt="jardín evento"></picture>
+      <div class="hero-image">
+        <picture>
+          <source srcset="./public/son-sampol.jpg" media="(max-width: 60)" />
+          <img src="./public/son-sampol.jpg" alt="outdoor venue" />
+        </picture>
       </div>
-      <div>      
+      <div class="hero-title">
         <h1>Jornadas</h1>
       </div>
-      <div>
+      <div class="hero-subtitle">
         <h2></h2>
       </div>
-      <div>
+      <div class="hero-description">
+        <p></p>
+      </div>
+      <div class="hero-button">
         <button>Saber más</button>
       </div>
     </div>
 
   </main>
   <footer></footer>
-  <h2> Hola </h2>  
 </body>
+
 </html>
