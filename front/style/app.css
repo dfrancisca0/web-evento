@@ -1,19 +1,22 @@
 body {
-    background-color: #F2ECBE;
-}
-
-h1 {
-    color: white;
-    font-family: "Taviraj", serif;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 4rem;
-    text-align: center;
+    background-color: rgba(163, 163, 163, 0.315);
 }
 
 .hero {
     position: relative;
     text-align: center;
+}
+
+/*
+height: 100vh;
+display: grid;
+gap: 3rem;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr
+*/
+
+.hero-image {
+    opacity: .9;
 }
 
 .hero-text {
@@ -23,8 +26,20 @@ h1 {
     transform: translate(-50%, -50%);
 }
 
-.hero-image {
-    opacity: .9;
+/*
+display: flex;
+flex-direction: column;
+gap: ;
+
+*/
+
+h1 {
+    color: white;
+    font-family: "Taviraj", serif;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 4rem;
+    text-align: center;
 }
 
 .hero-title {
