@@ -126,7 +126,7 @@ class Hero extends HTMLElement {
         }
       </style>
 
-      <div class="hero">
+      <section class="hero">
         <div class="hero-image">
           <picture>
             <source srcset="./public/son-sampol-mobile.webp" type="image/webp" media="(max-width: 600px)">
@@ -147,7 +147,7 @@ class Hero extends HTMLElement {
             </a>
           </div>
         </div>
-      </div>
+      </section>
     `
   }
 }
