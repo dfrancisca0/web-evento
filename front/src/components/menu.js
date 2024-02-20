@@ -23,6 +23,8 @@ class Menu extends HTMLElement {
         }
 
         .menu ul {
+          display: flex;
+          gap: 4rem;
           margin: 0;
           padding: 0;
           list-style: none;

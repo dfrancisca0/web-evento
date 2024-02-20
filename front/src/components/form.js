@@ -23,14 +23,12 @@ class Form extends HTMLElement {
           font-family: 'Poppins', sans-serif;
           font-size: 1.5rem;
           text-decoration: none;
-          text-transform: capitalize;
         }
         
         .form-groups{
           display: flex;
           gap: 2rem;
         }
-
 
         .form-text {
           display: flex;
@@ -85,45 +83,38 @@ class Form extends HTMLElement {
               </div>
               <div class="form-element">
                  <input type="checkbox" id="element2" name="element2" value="">  
-                <label for="element2">Lorem</label><br>
+                 <label for="element2">Lorem</label><br>
               </div>
               <div class="form-element">
                 <input type="checkbox" id="element3" name="element3" value="">  
                 <label for="element3">Lorem</label><br>
-                <input type="checkbox" id="element3" name="element3" value=""><br>
               </div>
               <div class="form-element">
                 <input type="checkbox" id="element4" name="element4" value="">  
                 <label for="element4">Lorem</label><br>
-                <input type="checkbox" id="element4" name="element4" value=""><br>
               </div>
             </div>
             <div class="form-group">
               <div class="form-element">
                 <input type="checkbox" id="element1" name="element1" value="">  
                 <label for="element1">Lorem</label><br>
-                <input type="checkbox" id="element1" name="element1" value=""><br>
               </div>
               <div class="form-element">
                 <input type="checkbox" id="element2" name="element2" value="">  
                 <label for="element2">Lorem</label><br>
-                <input type="checkbox" id="element2" name="element2" value=""><br>
               </div>
               <div class="form-element">
                 <input type="checkbox" id="element3" name="element3" value="">  
                 <label for="element3">Lorem</label><br>
-                <input type="checkbox" id="element3" name="element3" value=""><br>
               </div>
               <div class="form-element">
                 <input type="checkbox" id="element4" name="element4" value="">  
                 <label for="element4">Lorem</label><br>
-                <input type="checkbox" id="element4" name="element4" value=""><br>
               </div>  
             </div>  
           </div>     
-          <div class="form-checkbox">
-            <input type="checkbox" id="yn" name="yn" value="">  
-            <label for="yn"></label><br>
+          <div class="form-checkbox"> 
+            <label for="yn"> ¿Quieres comer con nosotros?</label><br>
             <input type="checkbox" id="yn" name="yn" value=""><br>  
           </div>
           <div class="form-text">

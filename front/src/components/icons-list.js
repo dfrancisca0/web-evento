@@ -53,7 +53,7 @@ class IconsList extends HTMLElement {
           height: 8rem;
           width: 8rem;
           fill: hsla(20, 8.1%, 21.8%, 1);
-        }
+          }
         }
 
       </style>

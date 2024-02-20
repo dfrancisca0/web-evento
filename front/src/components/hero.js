@@ -81,6 +81,7 @@ class Hero extends HTMLElement {
         @media (hover: hover) {
           .hero-button button:hover{
             background-color: hsla(0, 100%, 100%, 0.4);
+            color: hsla(0, 0%, 0%, 1);
           }
         }
 
