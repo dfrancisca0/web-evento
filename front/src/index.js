@@ -1,3 +1,4 @@
+import './components/margin.js'
 import './components/logo.js'
 import './components/menu.js'
 import './components/hero.js'

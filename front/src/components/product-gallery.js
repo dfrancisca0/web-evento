@@ -55,7 +55,8 @@ class ProductGallery extends HTMLElement {
         }
 
         .product-front {
-          background-color: hsla(0, 0%, 0%, 1);
+          position: absolute;
+          display: flex;
           color: hsla(0, 100%, 100%, 1);
         }
 
@@ -63,6 +64,14 @@ class ProductGallery extends HTMLElement {
           background-color: hsla(0, 0%, 0%, 1);
           opacity: .5;
           z-index: -1;
+        }
+
+        .product-front-text {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          bottom: 0;
+          padding: 1rem;
         }
 
         .product-back {
@@ -125,11 +134,13 @@ class ProductGallery extends HTMLElement {
                 <source srcset="./public/watercolor.webp" type="image/webp">
                 <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
               </picture>
-              <div class="product-title">
-                <h2>Acuarela</h2>
-              </div>
-              <div class="product-description">
-                <p>10h00 - 12h00</p><br/>
+              <div class="product-front-text">
+                <div class="product-title">
+                  <h2>Acuarela</h2>
+                </div>
+                <div class="product-description">
+                  <p>10h00 - 12h00</p><br/>
+                </div>
               </div>
             </div>
             <div class="product-back">
@@ -152,11 +163,13 @@ class ProductGallery extends HTMLElement {
                 <source srcset="./public/lettering.webp" type="image/webp">
                 <img src="./public/lettering.webp" alt="lettering" title="lettering workshop">
               </picture>
-              <div class="product-title">
-                <h2>Lettering</h2>
-              </div>
-              <div class="product-description">
-                <p>10h00 - 12h00</p><br/>
+              <div class="product-front-text">
+                <div class="product-title">
+                  <h2>Lettering</h2>
+                </div>
+                <div class="product-description">
+                  <p>10h00 - 12h00</p><br/>
+                </div>
               </div>
             </div>
             <div class="product-back">
@@ -167,7 +180,7 @@ class ProductGallery extends HTMLElement {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/>
               </div>
               <div class="product-gallery-button">
-                <button>+</button>
+                <add-button-component></add-button-component>
               </div>
             </div>
           </div>
@@ -194,7 +207,7 @@ class ProductGallery extends HTMLElement {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/>
               </div>
               <div class="product-gallery-button">
-                <button>+</button>
+                <add-button-component></add-button-component>
               </div>
             </div>
           </div>
@@ -221,7 +234,7 @@ class ProductGallery extends HTMLElement {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/>
               </div>
               <div class="product-gallery-button">
-                <button>+</button>
+                <add-button-component></add-button-component>
               </div>
             </div>
           </div>

@@ -23,7 +23,7 @@ class Hero extends HTMLElement {
           height: 100%;
           position: absolute;
           width: 100%;
-          z-index: 1000;
+          z-index: 0;
         }
 
         .hero-image img{
@@ -42,7 +42,7 @@ class Hero extends HTMLElement {
           justify-content: center;
           position: absolute;
           width: 100%;
-          z-index: 1001;
+          z-index: 1;
         }
 
         .hero-title h1{

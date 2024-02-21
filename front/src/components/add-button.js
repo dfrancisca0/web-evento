@@ -18,55 +18,40 @@ class AddButton extends HTMLElement {
           outline:0;
         }
 
-        .sf-btn * {
+        .add-button * {
           box-sizing: border-box;
         }
 
-        .sf-btn {
+        .add-button {
           margin: auto;
           display: flex;
-          background-color: hsla(48, 93%, 53%, 1);
+          background-color: transparent; 
           border-radius: 50px;
           width: 40px;
           height: 40px;
-          border: none;
+          border: 2px solid hsla(48, 93%, 53%, 1); 
           padding: 0;
           position: relative;
         }
 
-        .sf-btn.add {
-          background-color: transparent; 
-          border: 2px solid #C8C8C8; 
-        }
-        .sf-btn.update { 
-          border-color: #EDA549;
-        }
-
-        .sf-btn.active {
+        .add-button.active {
           background-color: hsla(48, 93%, 53%, 1);
           border: none;
         }
 
-        .sf-btn.loading {
-          background-color: #fff;
-          border: none;
-        }
-
-        .icn-sf {
+        .button-icon {
           width: 100%;
           height: 100%;
           position: relative;
           display: flex;
+          justify-content: center;
+          align-items: center;
           border: none;
           border-radius: 100px;
           padding: 2px 6px 3px;
         }
-        
-        .loading .icn-sf:not(.line) {
-          background-color: #4574bc;
-        }
-
-        .active .loader {
+      
+        .add-button.active .loader {
           position: absolute;
           top: 0;
           width: 100%;
@@ -88,45 +73,36 @@ class AddButton extends HTMLElement {
           width: 90%;
           height: 3px;
           position: absolute;
-          left: 5%;
           border-radius: 4px;
           transition: all 0.4s;
         }
 
-        .add .line {
+        .line {
           width: 60%; 
           left:20%; 
-          background-color: hsla(0, 0%, 78%, 1);
+          background-color: hsla(48, 93%, 53%, 1);
         }
 
-        .add.update .line {
-          background-color: hsla(0, 0%, 78%, 1);
+        .line:nth-child(1) {
         }
 
-        .add .line-1 {
-          top: 50%;
-          margin-top: -2px;
+        .line:nth-child(2) {
+          transform: translateX(0) rotate(90deg);
         }
 
-        .add .line-2 {
-          transform:         translateX(0) rotate(90deg);
-          top: 50%;
-          margin-top: -2px;
-        }
-
-        .active .line { 
+        .add-button.active .line { 
           left: 5%; 
           background-color:  hsla(0, 0%, 0%, 1);
         }
 
-        .sf-btn.active .line-1 {
-          transform:         translateX(47%) rotate(45deg);
+        .add-button.active .line:nth-child(1) {
+          transform: translateX(47%) rotate(45deg);
           top: 63%;
           width: 30%;
         }
 
-        .sf-btn.active .line-2 {
-          transform:         translateX(50%) rotate(-55deg);
+        .add-button.active .line:nth-child(2) {
+          transform: translateX(50%) rotate(-55deg);
           top: 52%;
           width: 55%;
         }
@@ -140,12 +116,26 @@ class AddButton extends HTMLElement {
             transform: rotate(400deg);
           }
         }
+
+        @media (hover: hover) {
+
+          .add-button:hover {
+            background-color: hsla(0, 100%, 100%, .3);
+            cursor: pointer;
+          }
+
+          .add-button.active:hover {
+            background-color: hsla(48, 93%, 53%, 1);
+            cursor: pointer;
+          }
+          
+        }
       </style>
 
-      <button type="submit" class="sf-btn add">
-        <div class="icn-sf">
-          <span class="line line-1"></span>
-          <span class="line line-2"></span>
+      <button class="add-button">
+        <div class="button-icon">
+          <span class="line"></span>
+          <span class="line"></span>
         </div>
         <div class="loader"></div>
       </button>
