@@ -66,10 +66,10 @@ class Hero extends HTMLElement {
         }
 
         .hero-button button{
-          background-color: hsla(0, 0%, 0%, 1);
+          background-color: hsla(48, 93%, 53%, 1);
           border: none;
           border-radius: 1rem;
-          color: hsl(0, 0%, 100%);
+          color: hsl(0, 0%, 0%);
           cursor: pointer;
           font-family: 'Poppins', sans-serif;
           font-size: 1.5rem;
@@ -80,7 +80,7 @@ class Hero extends HTMLElement {
 
         @media (hover: hover) {
           .hero-button button:hover{
-            background-color: hsla(0, 100%, 100%, 0.4);
+            background-color: hsla(48, 93%, 53%, .7);
             color: hsla(0, 0%, 0%, 1);
           }
         }
