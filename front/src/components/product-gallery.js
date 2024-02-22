@@ -82,8 +82,8 @@ class ProductGallery extends HTMLElement {
 
         .product-front img{
           height: 100%;
-          object-fit: cover;
           width: 100%;
+          object-fit: cover;
         }
 
         .product-gallery-button {
