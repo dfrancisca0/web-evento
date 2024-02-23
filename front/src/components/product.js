@@ -77,19 +77,20 @@ class Product extends HTMLElement {
 
           .product-add {
             display: flex;
-            padding: 5rem 0;
+            height: 3rem;
+            width: 80%;
+            margin: 2rem;
+            padding: .5rem 0;
+            border-radius: 5px;
             gap: 2rem;
+            background-color: hsla(48, 93%, 53%, 1); 
             justify-content: center;
             align-items: center;
           }
 
-          .product-add label {
-            color: 
-          }
-
         </style>
         
-        <div class="product">
+        <section class="product">
           <div class="product-picture">
             <picture>
               <source srcset="./public/watercolor.webp" type="image/webp">
@@ -127,7 +128,7 @@ class Product extends HTMLElement {
               </div>
             </div>
           </div>
-        </div>
+        </section>
       `
   }
 }
