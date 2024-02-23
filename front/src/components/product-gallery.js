@@ -107,15 +107,15 @@ class ProductGallery extends HTMLElement {
 
         
         @media (hover: hover) {
-          .product-gallery-element:hover .product-gallery-element-inner {
+          .product:hover .product-inner {
             transform: rotateY(180deg);
           }
 
-          .product-gallery-element:hover img {
+          .productt:hover img {
             opacity: 1;
           }
 
-          .product-gallery-element:hover .product-gallery-content {
+          .product:hover .product-content {
             background-color: hsla(0, 0%, 0%, .8);
           }
 

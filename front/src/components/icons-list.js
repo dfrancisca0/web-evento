@@ -20,14 +20,15 @@ class IconsList extends HTMLElement {
           flex-wrap: wrap;
           justify-content: center;
           align-content: center;
+          height: 20vh;
           width: 100%;
+          bottom: 0;
           gap: 10rem;
-          padding: 5% 0%;
         }
 
         .icons-image svg{
-          height: 8rem;
-          width: 8rem;
+          height: 4rem;
+          width: 4rem;
           fill: hsla(20, 8.1%, 21.8%, 1);
         }
 
