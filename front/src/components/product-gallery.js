@@ -15,6 +15,11 @@ class ProductGallery extends HTMLElement {
       
       <style>
 
+        h2, p {
+          margin: 0;
+          padding: 0;
+        }
+
         .product-gallery {
           display: grid;
           gap: 3rem;
@@ -35,8 +40,7 @@ class ProductGallery extends HTMLElement {
           position: relative;
           width: 100%;
           height: 100%;
-          background-color: hsla(0, 0%, 0%, 1);
-          text-align: center;
+          background-color: hsla(0, 0%, 0%, .7);
           transition: transform 0.6s;
           transform-style: preserve-3d;
           box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -55,35 +59,49 @@ class ProductGallery extends HTMLElement {
         }
 
         .product-front {
-          position: absolute;
-          display: flex;
           color: hsla(0, 100%, 100%, 1);
         }
 
         .product-front picture{
-          background-color: hsla(0, 0%, 0%, 1);
+          position: absolute;
+          height: 100%;
+          width: 100%;
           opacity: .5;
           z-index: -1;
-        }
-
-        .product-front-text {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          bottom: 0;
-          padding: 1rem;
-        }
-
-        .product-back {
-          background-color: hsla(0, 0%, 0%, 1);;
-          color: hsla(0, 100%, 100%, 1);
-          transform: rotateY(180deg);
         }
 
         .product-front img{
           height: 100%;
           width: 100%;
           object-fit: cover;
+        }
+
+        .product-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          padding: 1rem;
+          gap: 1rem;
+          z-index: 1;
+          box-sizing: border-box;
+          line-height: 1.5;
+        }
+
+        .product-front .product-text {
+          bottom: 0;
+        }
+
+        .product-back {
+          background-color: hsla(0, 0%, 0%, .5);
+          color: hsla(0, 100%, 100%, 1);
+          transform: rotateY(180deg);
+          text-align: center;
+        }
+
+        .product-front .product-text {
+          background-color: hsla(0, 0%, 0%, .5);
         }
 
         .product-gallery-button {
@@ -134,7 +152,7 @@ class ProductGallery extends HTMLElement {
                 <source srcset="./public/watercolor.webp" type="image/webp">
                 <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
               </picture>
-              <div class="product-front-text">
+              <div class="product-text">
                 <div class="product-title">
                   <h2>Acuarela</h2>
                 </div>
@@ -144,11 +162,13 @@ class ProductGallery extends HTMLElement {
               </div>
             </div>
             <div class="product-back">
-              <div class="product-gallery-title">
-                <h2>Acuarela</h2>
-              </div>
-              <div class="product-gallery-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/>
+              <div class="product-text">
+                <div class="product-title">
+                  <h2>Acuarela</h2>
+                </div>
+                <div class="product-description">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/>
+                </div>
               </div>
               <div class="product-gallery-button">
                 <add-button-component></add-button-component>
@@ -163,21 +183,23 @@ class ProductGallery extends HTMLElement {
                 <source srcset="./public/lettering.webp" type="image/webp">
                 <img src="./public/lettering.webp" alt="lettering" title="lettering workshop">
               </picture>
-              <div class="product-front-text">
+              <div class="product-text">
                 <div class="product-title">
                   <h2>Lettering</h2>
                 </div>
                 <div class="product-description">
-                  <p>10h00 - 12h00</p><br/>
+                  <p>12h00 - 14h00</p><br/>
                 </div>
               </div>
             </div>
             <div class="product-back">
-              <div class="product-gallery-title">
-                <h2>Lettering</h2>
-              </div>
-              <div class="product-gallery-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/>
+              <div class="product-text">
+                <div class="product-title">
+                  <h2>Lettering</h2>
+                </div>
+                <div class="product-description">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/>
+                </div>
               </div>
               <div class="product-gallery-button">
                 <add-button-component></add-button-component>
@@ -192,19 +214,23 @@ class ProductGallery extends HTMLElement {
                 <source srcset="./public/candle-making.webp" type="image/webp">
                 <img src="./public/candle-making.webp" alt="candle making" title="candle making workshop">
               </picture>
-              <div class="product-title">
-                <h2>Velas</h2>
-              </div>
-              <div class="product-description">
-                <p>10h00 - 12h00</p><br/>
+              <div class="product-text">
+                <div class="product-title">
+                  <h2>Velas</h2>
+                </div>
+                <div class="product-description">
+                  <p>15h00 - 17h00</p><br/>
+                </div>
               </div>
             </div>
             <div class="product-back">
-              <div class="product-gallery-title">
-                <h2>Velas</h2>
-              </div>
-              <div class="product-gallery-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/>
+              <div class="product-text">
+                <div class="product-title">
+                  <h2>Velas</h2>
+                </div>
+                <div class="product-description">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/>
+                </div>
               </div>
               <div class="product-gallery-button">
                 <add-button-component></add-button-component>
@@ -219,19 +245,23 @@ class ProductGallery extends HTMLElement {
                 <source srcset="./public/writing.webp" type="image/webp">
                 <img src="./public/writing.webp" alt="writing" title="writing workshop">
               </picture>
-              <div class="product-title">
-                <h2>Escritura</h2>
-              </div>
-              <div class="product-description">
-                <p>10h00 - 12h00</p><br/>
+              <div class="product-text">
+                <div class="product-title">
+                  <h2>Escritura</h2>
+                </div>
+                <div class="product-description">
+                  <p>17h00 - 19h00</p><br/>
+                </div>
               </div>
             </div>
             <div class="product-back">
-              <div class="product-gallery-title">
-                <h2>Escritura</h2>
-              </div>
-              <div class="product-gallery-description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/>
+              <div class="product-text">
+                <div class="product-title">
+                  <h2>Escritura</h2>
+                </div>
+                <div class="product-description">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p><br/>
+                </div>
               </div>
               <div class="product-gallery-button">
                 <add-button-component></add-button-component>

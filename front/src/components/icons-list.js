@@ -27,8 +27,8 @@ class IconsList extends HTMLElement {
         }
 
         .icons-image svg{
-          height: 4rem;
-          width: 4rem;
+          height: 3rem;
+          width: 3rem;
           fill: hsla(20, 8.1%, 21.8%, 1);
         }
 
@@ -51,8 +51,8 @@ class IconsList extends HTMLElement {
 
         @media (min-width: 1920px) {
           .icons-image svg{
-          height: 8rem;
-          width: 8rem;
+          height: 4rem;
+          width: 4rem;
           fill: hsla(20, 8.1%, 21.8%, 1);
           }
         }
