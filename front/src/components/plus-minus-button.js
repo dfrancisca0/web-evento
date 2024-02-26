@@ -53,9 +53,9 @@ class PlusMinusButton extends HTMLElement {
       </style>
 
       <div class="plus-minus-button">
-        <button id="minus">−</button>
-        <input type="number" value="0" id="input"/>
-        <button id="plus">+</button>
+        <button class="minus">−</button>
+        <input type="number" value="0" class="plus-minus-input"/>
+        <button class="plus">+</button>
       </div>
       `
   }
