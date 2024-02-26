@@ -355,22 +355,6 @@ class Cart extends HTMLElement {
     cartCloseButton.addEventListener('click', () => {
       cartOpen.classList.remove('active')
     })
-
-    const minusButton = this.shadow.querySelector('.minus')
-    const plusButton = this.shadow.querySelector('.plus')
-    const productQuantity = this.shadow.querySelector('.plus-minus-input')
-
-    minusButton.addEventListener('click', () => {
-      if (productQuantity === 0) {
-
-      } else {
-
-      }
-    })
-
-    plusButton.addEventListener('click', () => {
-
-    })
   }
 }
 

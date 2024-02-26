@@ -36,6 +36,7 @@ class PlusMinusButton extends HTMLElement {
           border-radius: 5px;
           font-weight: bold;
           text-align: center; 
+          outline: none;
         }
 
         input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
@@ -54,10 +55,23 @@ class PlusMinusButton extends HTMLElement {
 
       <div class="plus-minus-button">
         <button class="minus">−</button>
-        <input type="number" value="0" class="plus-minus-input"/>
+        <input type="number" value="1" class="plus-minus-input"/>
         <button class="plus">+</button>
       </div>
       `
+    const plusMinusButton = this.shadow.querySelector('.plus-minus-button')
+    const productQuantity = this.shadow.querySelector('.plus-minus-input')
+
+    plusMinusButton.addEventListener('click', event => {
+      console.log(event.target)
+      if (event.target.closest('.plus')) {
+        productQuantity.value = (parseInt(productQuantity.value)) + 1
+      }
+
+      if (event.target.closest('.minus') && productQuantity.value > 1) {
+        productQuantity.value = (parseInt(productQuantity.value)) - 1
+      }
+    })
   }
 }
 
