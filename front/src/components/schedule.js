@@ -19,6 +19,7 @@ class Schedule extends HTMLElement {
           margin: 0;
           padding: 0;
           font-family: 'Poppins', sans-serif;
+          letter-spacing: .1rem;
         }
 
         .schedule {
@@ -26,10 +27,10 @@ class Schedule extends HTMLElement {
           grid-template-columns: 0.5fr 1fr 1fr 1fr 1fr;
           grid-template-rows: repeat(6, 1fr);
           grid-gap: 0.5rem;
-          height: 50vh;
-          padding: 0.5rem;
+          margin: 2rem 8rem;
           justify-items: center;
           align-items: center;
+          text-align: center;
         }
 
         .frame-row-slot {
@@ -48,19 +49,28 @@ class Schedule extends HTMLElement {
         }
 
         .content-slot {
-          width: 80%;
-          border-radius: 5px; 
-          background-color: hsla(48, 93%, 53%, .8);
-          color: hsla(0, 0%, 0%, 1);
-          text-align: center;
+          position: relative;
+          display: flex;
+          height: 100%;
+          width: 100%;
+          border-radius: 5px;
+          background-color: hsla(0, 0%, 0%, 1);
+          opacity: .9;
+          color: hsla(0, 100%, 100%, 1);
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
         }
 
         .slot-image {
-          border-radius: 5px;
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          z-index: -1;
         }
 
         .slot-image img{
-          height: 100px;
+          height: 100%;
           width: 100%;
           object-fit: cover;
           opacity: .5;
@@ -84,11 +94,12 @@ class Schedule extends HTMLElement {
         }
 
         .col-all {
-          grid-column: span 4;
+          height: 120px;
           grid-column-start: 2;
+          grid-column-end: 6;
           grid-row-start: 4;
-          background-color: hsla(102, 48%, 49%, 1);
-          
+          background-color: hsla(48, 93%, 53%, 1);
+          color: hsla(0, 0%, 0%, 1);          
         }
 
         .row-1 {
@@ -100,15 +111,15 @@ class Schedule extends HTMLElement {
         }
 
         .row-3 {
-          grid-row-start: 4;
-        }
-
-        .row-4 {
           grid-row-start: 5;
         }
 
-        .row-5 {
+        .row-4 {
           grid-row-start: 6;
+        }
+
+        .row-5 {
+          grid-row-start: 7;
         }
 
         .content-slot .row-3 {
@@ -117,6 +128,16 @@ class Schedule extends HTMLElement {
 
         .content-slot .row-4 {
           grid-row-start: 6;
+        }
+
+        @media {
+          .content-slot:hover {
+            opacity: .5;
+          }
+
+          .content-slot:hover img {
+            opacity: .9;
+          }
         }
 
       </style>
@@ -222,7 +243,7 @@ class Schedule extends HTMLElement {
           <h3>Taller B4</h3>
         </div>
         <div class="content-slot col-all">
-          <h3>Almuerzo</h3>
+          <h3>Almuerzo (+ 15€ adultos | + 10€ niños)</h3>
         </div>
         <div class="content-slot col-1 row-3">
           <div class="slot-image">
