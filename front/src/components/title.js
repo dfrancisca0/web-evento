@@ -38,6 +38,7 @@ class Title extends HTMLElement {
 
     const titleContainer = this.shadow.querySelector('.title')
     const title = document.createElement(this.tag)
+
     title.textContent = this.text
     titleContainer.appendChild(title)
   }

@@ -15,14 +15,14 @@ class CategoryFilter extends HTMLElement {
       
       <style>
         
-        .category-filter-buttons {
+        .filter-buttons {
           display: flex;
           gap: 1.5rem;
           margin: 3rem 0;
           justify-content: flex-end;
         }
 
-        .category-filter-button button {
+        .filter-button button {
           background-color: hsla(0, 0%, 0%, 0.7);
           color: hsl(0, 0%, 100%);
           border: none;
@@ -35,24 +35,35 @@ class CategoryFilter extends HTMLElement {
           transition: all 0.3s ease;
         }
 
-        .category-filter-button:hover button {
+        .filter-button:hover button {
           background-color: hsla(0, 0%, 0%, 1);
         }
 
       </style>
 
-      <div class="category-filter-buttons">
-        <div class="category-filter-button">
+      <div class="filter-buttons">
+        <div class="filter-button" data-category="0">
           <button>Todas</button>
         </div>
-          <div class="category-filter-button">
+          <div class="filter-button" data-category="1">
           <button>Adultos</button>
         </div>
-        <div class="category-filter-button">
+        <div class="filter-button" data-category="2">
           <button>Niños</button>
         </div>
       </div>
       `
+    const filterButtons = this.shadow.querySelectorAll('.filter-button')
+
+    filterButtons.forEach(filterButton => {
+      filterButton.addEventListener('click', () => {
+        document.dispatchEvent(new CustomEvent('filter-gallery', {
+          detail: {
+            category: filterButton.dataset.category
+          }
+        }))
+      })
+    })
   }
 }
 

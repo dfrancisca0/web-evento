@@ -63,7 +63,6 @@ class PlusMinusButton extends HTMLElement {
     const productQuantity = this.shadow.querySelector('.plus-minus-input')
 
     plusMinusButton.addEventListener('click', event => {
-      console.log(event.target)
       if (event.target.closest('.plus')) {
         productQuantity.value = (parseInt(productQuantity.value)) + 1
       }
