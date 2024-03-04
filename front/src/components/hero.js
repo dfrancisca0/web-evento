@@ -15,7 +15,7 @@ class Hero extends HTMLElement {
       title: 'Encuentro Mosaico',
       description: 'Un espacio para compartir, aprender y disfrutar',
       buttonText: 'Ver horarios',
-      buttonLink: 'schedule.html',
+      buttonLink: 'landing.html',
       images: {
         alt: 'son-sampol',
         title: 'finca son sampol',

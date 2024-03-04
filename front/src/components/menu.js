@@ -54,6 +54,7 @@ class Menu extends HTMLElement {
           font-size: 1.5rem;
           text-decoration: none;
           text-transform: capitalize;
+          cursor: pointer;
         }
 
       </style>
@@ -70,7 +71,7 @@ class Menu extends HTMLElement {
       menuList.appendChild(menuItem)
 
       const itemLink = document.createElement('a')
-      itemLink.setAttribute('link', element.link)
+      itemLink.setAttribute('href', element.link)
       itemLink.textContent = element.title
       menuItem.appendChild(itemLink)
     })

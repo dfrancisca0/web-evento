@@ -14,7 +14,7 @@ class ProductGallery extends HTMLElement {
   handleFilterProducts (event) {
     const products = this.shadow.querySelectorAll('.product')
 
-    if (event.detail.category === '0') {
+    if (event.detail.category === 'todos') {
       products.forEach(product => {
         product.classList.remove('hidden')
       })
@@ -169,7 +169,7 @@ class ProductGallery extends HTMLElement {
 
       </style>
       <section class="product-gallery">
-        <div class="product" data-category="1">
+        <div class="product" data-category="familiares">
           <div class="product-inner">
             <div class="product-front">
               <picture>
@@ -200,7 +200,7 @@ class ProductGallery extends HTMLElement {
             </div>
           </div>
         </div>
-        <div class="product" data-category="2">
+        <div class="product" data-category="adultos">
           <div class="product-inner">
             <div class="product-front">
               <picture>
@@ -231,7 +231,7 @@ class ProductGallery extends HTMLElement {
             </div>
           </div>
         </div>
-        <div class="product" data-category="2">
+        <div class="product" data-category="adultos">
           <div class="product-inner">
             <div class="product-front">
               <picture>
@@ -262,7 +262,7 @@ class ProductGallery extends HTMLElement {
             </div>
           </div>
         </div>
-        <div class="product" data-category="3">
+        <div class="product" data-category="niños">
           <div class="product-inner">
             <div class="product-front">
               <picture>

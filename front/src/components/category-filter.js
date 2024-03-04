@@ -3,13 +3,32 @@ class CategoryFilter extends HTMLElement {
     super()
     this.shadow = this.attachShadow({ mode: 'open' })
     this.orientation = this.getAttribute('orientation')
+    this.data = []
   }
 
-  connectedCallback () {
-    this.render()
+  async connectedCallback () {
+    await this.loadData()
+    await this.render()
   }
 
-  render () {
+  async loadData () {
+    this.data = [
+      {
+        title: 'Todos'
+      },
+      {
+        title: 'Familiares'
+      },
+      {
+        title: 'Adultos'
+      },
+      {
+        title: 'Niños'
+      }
+    ]
+  }
+
+  async render () {
     this.shadow.innerHTML =
       /* html */`
       
@@ -41,31 +60,31 @@ class CategoryFilter extends HTMLElement {
 
       </style>
 
-      <div class="filter-buttons">
-        <div class="filter-button" data-category="0">
-          <button>Todos</button>
-        </div>
-        <div class="filter-button" data-category="1">
-          <button>Familiares</button>
-        </div>
-          <div class="filter-button" data-category="2">
-          <button>Adultos</button>
-        </div>
-        <div class="filter-button" data-category="3">
-          <button>Niños</button>
-        </div>
-      </div>
+      <div class="filter-buttons"></div>
       `
-    const filterButtons = this.shadow.querySelectorAll('.filter-button')
+    const filterButtons = this.shadow.querySelector('.filter-buttons')
 
-    filterButtons.forEach(filterButton => {
-      filterButton.addEventListener('click', () => {
+    this.data.forEach(category => {
+      const filterButton = document.createElement('div')
+      filterButton.classList.add('filter-button')
+      filterButton.dataset.category = category.title.toLowerCase()
+      filterButtons.appendChild(filterButton)
+
+      const button = document.createElement('button')
+      button.textContent = category.title
+      filterButton.appendChild(button)
+    })
+
+    filterButtons.addEventListener('click', event => {
+      if (event.target.closest('.filter-button')) {
+        const filterButton = event.target.closest('.filter-button')
+
         document.dispatchEvent(new CustomEvent('filter-gallery', {
           detail: {
             category: filterButton.dataset.category
           }
         }))
-      })
+      }
     })
   }
 }
