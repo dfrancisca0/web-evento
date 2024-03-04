@@ -43,12 +43,15 @@ class CategoryFilter extends HTMLElement {
 
       <div class="filter-buttons">
         <div class="filter-button" data-category="0">
-          <button>Todas</button>
+          <button>Todos</button>
         </div>
-          <div class="filter-button" data-category="1">
+        <div class="filter-button" data-category="1">
+          <button>Familiares</button>
+        </div>
+          <div class="filter-button" data-category="2">
           <button>Adultos</button>
         </div>
-        <div class="filter-button" data-category="2">
+        <div class="filter-button" data-category="3">
           <button>Niños</button>
         </div>
       </div>

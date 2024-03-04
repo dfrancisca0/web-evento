@@ -14,14 +14,19 @@ class ProductGallery extends HTMLElement {
   handleFilterProducts (event) {
     const products = this.shadow.querySelectorAll('.product')
 
-    products.forEach(product => {
-      if (event.detail.category !== product.dataset.category) {
-        console.log('hola')
-        product.classList.add('hidden')
-      } else {
+    if (event.detail.category === '0') {
+      products.forEach(product => {
         product.classList.remove('hidden')
-      }
-    })
+      })
+    } else {
+      products.forEach(product => {
+        if (event.detail.category !== product.dataset.category) {
+          product.classList.add('hidden')
+        } else {
+          product.classList.remove('hidden')
+        }
+      })
+    }
   }
 
   render () {
@@ -164,7 +169,7 @@ class ProductGallery extends HTMLElement {
 
       </style>
       <section class="product-gallery">
-        <div class="product" data-category="0">
+        <div class="product" data-category="1">
           <div class="product-inner">
             <div class="product-front">
               <picture>
@@ -195,7 +200,7 @@ class ProductGallery extends HTMLElement {
             </div>
           </div>
         </div>
-        <div class="product" data-category="1">
+        <div class="product" data-category="2">
           <div class="product-inner">
             <div class="product-front">
               <picture>
@@ -226,7 +231,7 @@ class ProductGallery extends HTMLElement {
             </div>
           </div>
         </div>
-        <div class="product" data-category="1">
+        <div class="product" data-category="2">
           <div class="product-inner">
             <div class="product-front">
               <picture>
@@ -257,7 +262,7 @@ class ProductGallery extends HTMLElement {
             </div>
           </div>
         </div>
-        <div class="product" data-category="2">
+        <div class="product" data-category="3">
           <div class="product-inner">
             <div class="product-front">
               <picture>
