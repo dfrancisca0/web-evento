@@ -61,7 +61,6 @@ class Menu extends HTMLElement {
 
       <nav class="menu"></nav>
       `
-
     const menu = this.shadow.querySelector('.menu')
     const menuList = document.createElement('ul')
     menu.appendChild(menuList)

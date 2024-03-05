@@ -115,6 +115,13 @@ class Product extends HTMLElement {
             background-color: hsla(48, 93%, 53%, 1); 
             justify-content: center;
             align-items: center;
+            cursor: pointer;
+          }
+
+          @media (hover: hover) {
+            .product-add:hover {
+              background-color: hsla(48, 93%, 53%, .8); 
+            }
           }
 
         </style>
@@ -152,13 +159,17 @@ class Product extends HTMLElement {
                   <h2>${this.data.buttonLabel}</h2>
                 </div>
                 <div class="product-add-button">
-                  <add-button-component text="Reserva tu plaza" background="hsla(48, 93%, 53%, 1)"></add-button-component>
+                  <add-button-component text="Reserva tu plaza" color="hsla(0, 0%, 0%, 1)" disableHover></add-button-component>
                 </div>
               </div>
             </div>
           </div>
         </section>
       `
+
+    this.shadow.querySelector('.product-add').addEventListener('click', () => {
+      document.dispatchEvent(new CustomEvent('add-element'))
+    })
   }
 }
 

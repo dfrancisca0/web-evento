@@ -2,11 +2,18 @@ class AddButton extends HTMLElement {
   constructor () {
     super()
     this.shadow = this.attachShadow({ mode: 'open' })
-    this.orientation = this.getAttribute('orientation')
+    this.color = this.getAttribute('color') || 'hsla(48, 93%, 53%, 1)'
+    this.disableHover = this.hasAttribute('disable-hover')
   }
 
   connectedCallback () {
+    document.addEventListener('add-element', this.handleAddElement.bind(this))
+
     this.render()
+  }
+
+  handleAddElement (event) {
+    this.addElement()
   }
 
   render () {
@@ -29,7 +36,7 @@ class AddButton extends HTMLElement {
           border-radius: 50px;
           width: 40px;
           height: 40px;
-          border: 2px solid hsla(48, 93%, 53%, 1); 
+          border: 2px solid ${this.color};
           padding: 0;
           position: relative;
         }
@@ -80,7 +87,7 @@ class AddButton extends HTMLElement {
         .line {
           width: 60%; 
           left:20%; 
-          background-color: hsla(48, 93%, 53%, 1);
+          background-color: ${this.color};
         }
 
         .line:nth-child(1) {
@@ -92,7 +99,7 @@ class AddButton extends HTMLElement {
 
         .add-button.active .line { 
           left: 5%; 
-          background-color:  hsla(0, 0%, 0%, 1);
+          background-color: hsla(0, 0%, 0%, 1);
         }
 
         .add-button.active .line:nth-child(1) {
@@ -105,6 +112,15 @@ class AddButton extends HTMLElement {
           transform: translateX(50%) rotate(-55deg);
           top: 52%;
           width: 55%;
+        }
+
+        :host(:not([disable-hover])) .add-button:hover {
+          background-color: transparent !important;
+          cursor: default !important;
+        }
+
+        :host(:not([disable-hover])) .add-button.active:hover {
+          background-color: hsla(48, 93%, 53%, 1) !important;
         }
 
         @keyframes rotation{
@@ -144,22 +160,28 @@ class AddButton extends HTMLElement {
     const button = this.shadow.querySelector('button')
 
     button.addEventListener('click', function () {
-      button.classList.toggle('active')
-
-      if (button.classList.contains('active')) {
-        document.dispatchEvent(new CustomEvent('message', {
-          detail: {
-            text: 'Se ha añadido la actividad al carrito'
-          }
-        }))
-      } else {
-        document.dispatchEvent(new CustomEvent('message', {
-          detail: {
-            text: 'Se ha removido la actividad al carrito'
-          }
-        }))
-      }
+      this.addElement()
     })
+  }
+
+  addElement () {
+    const button = this.shadow.querySelector('button')
+
+    button.classList.toggle('active')
+
+    if (button.classList.contains('active')) {
+      document.dispatchEvent(new CustomEvent('message', {
+        detail: {
+          text: 'Se ha añadido la actividad al carrito'
+        }
+      }))
+    } else {
+      document.dispatchEvent(new CustomEvent('message', {
+        detail: {
+          text: 'Se ha removido la actividad al carrito'
+        }
+      }))
+    }
   }
 }
 

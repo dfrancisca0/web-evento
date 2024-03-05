@@ -2,7 +2,6 @@ class Cart extends HTMLElement {
   constructor () {
     super()
     this.shadow = this.attachShadow({ mode: 'open' })
-    this.orientation = this.getAttribute('orientation')
   }
 
   connectedCallback () {
