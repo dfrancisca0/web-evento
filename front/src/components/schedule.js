@@ -15,47 +15,61 @@ class Schedule extends HTMLElement {
       stages: [
         {
           title: 'Escenario 1',
-          category: ['frame-row-slot', 'col-1', 'frame']
+          stage: 1,
+          time: 0,
+          category: ['frame-row-slot', 'col-1']
         },
         {
           title: 'Escenario 2',
-          category: ['frame-row-slot', 'col-2', 'frame']
+          stage: 2,
+          time: 0,
+          category: ['frame-row-slot', 'col-2']
         },
         {
           title: 'Escenario 3',
-          category: ['frame-row-slot', 'col-3', 'frame']
+          stage: 3,
+          time: 0,
+          category: ['frame-row-slot', 'col-3']
         },
         {
           title: 'Escenario 4',
-          category: ['frame-row-slot', 'col-4', 'frame']
+          stage: 4,
+          time: 0,
+          category: ['frame-row-slot', 'col-4']
         }
       ],
       times: [
         {
           title: '10h00 - 12h00',
-          category: ['frame-column-slot', 'frame']
+          stage: 0,
+          time: 1
         },
         {
           title: '12h00 - 14h00',
-          category: ['frame-column-slot', 'frame']
+          stage: 0,
+          time: 2
         },
         {
           title: '14h00 - 15h00',
-          category: ['frame-column-slot', 'frame']
+          stage: 0,
+          time: 3
         },
         {
           title: '15h00 - 17h00',
-          category: ['frame-column-slot', 'frame']
+          stage: 0,
+          time: 4
         },
         {
           title: '17h00 - 19h00',
-          category: ['frame-column-slot', 'frame']
+          stage: 0,
+          time: 5
         }
       ],
       activities: [
         {
           title: 'Taller A1',
-          category: ['content-slot', 'col-1', 'row-1', 'content'],
+          stage: 1,
+          time: 1,
           images: {
             xs: {
               mainImage: {
@@ -93,7 +107,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller A2',
-          category: ['content-slot', 'col-2', 'row-1', 'content'],
+          stage: 2,
+          time: 1,
           images: {
             xs: {
               mainImage: {
@@ -131,7 +146,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller A3',
-          category: ['content-slot', 'col-3', 'row-1', 'content'],
+          stage: 3,
+          time: 1,
           images: {
             xs: {
               mainImage: {
@@ -169,7 +185,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller A4',
-          category: ['content-slot', 'col-4', 'row-1', 'content'],
+          stage: 4,
+          time: 1,
           images: {
             xs: {
               mainImage: {
@@ -207,7 +224,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller B1',
-          category: ['content-slot', 'col-1', 'row-2', 'content'],
+          stage: 1,
+          time: 2,
           images: {
             xs: {
               mainImage: {
@@ -245,7 +263,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller B2',
-          category: ['content-slot', 'col-2', 'row-2', 'content'],
+          stage: 2,
+          time: 2,
           images: {
             xs: {
               mainImage: {
@@ -283,7 +302,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller B3',
-          category: ['content-slot', 'col-3', 'row-2', 'content'],
+          stage: 3,
+          time: 2,
           images: {
             xs: {
               mainImage: {
@@ -321,7 +341,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller B4',
-          category: ['content-slot', 'col-4', 'row-2', 'content'],
+          stage: 4,
+          time: 2,
           images: {
             xs: {
               mainImage: {
@@ -359,11 +380,14 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Almuerzo (+ 15€ adultos | + 10€ niños)',
-          category: ['content-slot', 'col-all', 'content']
+          category: 'col-all',
+          stage: 1,
+          time: 3
         },
         {
           title: 'Taller D1',
-          category: ['content-slot', 'col-1', 'row-3', 'content'],
+          stage: 1,
+          time: 4,
           images: {
             xs: {
               mainImage: {
@@ -401,7 +425,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller D2',
-          category: ['content-slot', 'col-2', 'row-3', 'content'],
+          stage: 2,
+          time: 4,
           images: {
             xs: {
               mainImage: {
@@ -439,7 +464,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller D3',
-          category: ['content-slot', 'col-3', 'row-3', 'content'],
+          stage: 3,
+          time: 4,
           images: {
             xs: {
               mainImage: {
@@ -477,7 +503,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller D4',
-          category: ['content-slot', 'col-4', 'row-3', 'content'],
+          stage: 4,
+          time: 4,
           images: {
             xs: {
               mainImage: {
@@ -515,7 +542,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller E1',
-          category: ['content-slot', 'col-1', 'row-4', 'content'],
+          stage: 1,
+          time: 5,
           images: {
             xs: {
               mainImage: {
@@ -553,7 +581,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller E2',
-          category: ['content-slot', 'col-2', 'row-4', 'content'],
+          stage: 2,
+          time: 5,
           images: {
             xs: {
               mainImage: {
@@ -591,7 +620,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller E3',
-          category: ['content-slot', 'col-3', 'row-4', 'content'],
+          stage: 3,
+          time: 5,
           images: {
             xs: {
               mainImage: {
@@ -629,7 +659,8 @@ class Schedule extends HTMLElement {
         },
         {
           title: 'Taller E4',
-          category: ['content-slot', 'col-4', 'row-4', 'content'],
+          stage: 4,
+          time: 5,
           images: {
             xs: {
               mainImage: {
@@ -809,12 +840,9 @@ class Schedule extends HTMLElement {
 
     this.data.stages.forEach(object => {
       const slot = document.createElement('div')
-
-      if (Array.isArray(object.category)) {
-        slot.classList.add(...object.category)
-      } else {
-        slot.classList.add(object.category)
-      }
+      slot.classList.add('frame-row-slot')
+      slot.style.gridRowStart = object.time + 1
+      slot.style.gridColumnStart = object.stage + 1
 
       schedule.appendChild(slot)
 
@@ -825,12 +853,9 @@ class Schedule extends HTMLElement {
 
     this.data.times.forEach(object => {
       const slot = document.createElement('div')
-
-      if (Array.isArray(object.category)) {
-        slot.classList.add(...object.category)
-      } else {
-        slot.classList.add(object.category)
-      }
+      slot.classList.add('frame-column-slot')
+      slot.style.gridRowStart = object.time + 1
+      slot.style.gridColumnStart = object.stage + 1
 
       schedule.appendChild(slot)
 
@@ -841,12 +866,9 @@ class Schedule extends HTMLElement {
 
     this.data.activities.forEach(object => {
       const slot = document.createElement('div')
-
-      if (Array.isArray(object.category)) {
-        slot.classList.add(...object.category)
-      } else {
-        slot.classList.add(object.category)
-      }
+      slot.classList.add('content-slot')
+      slot.style.gridRowStart = object.time + 1
+      slot.style.gridColumnStart = object.stage + 1
 
       schedule.appendChild(slot)
 
@@ -858,217 +880,46 @@ class Schedule extends HTMLElement {
       slotImage.classList.add('slot-image')
       slot.appendChild(slotImage)
 
-      const picture = document.createElement('picture')
-      slotImage.appendChild(picture)
+      if (object.category === 'col-all') {
+        slot.classList.add(object.category)
+      }
 
-      const sourceLg = document.createElement('source')
-      sourceLg.setAttribute('src', object.images.lg.mainImage.src)
-      sourceLg.setAttribute('type', 'image/webp')
-      sourceLg.setAttribute('media', '(min-width: 1200px)')
-      picture.appendChild(sourceLg)
+      if ('images' in object) {
+        const picture = document.createElement('picture')
+        slotImage.appendChild(picture)
 
-      const sourceMd = document.createElement('source')
-      sourceMd.setAttribute('src', object.images.md.mainImage.src)
-      sourceMd.setAttribute('type', 'image/webp')
-      sourceMd.setAttribute('media', '(min-width: 992px)')
-      picture.appendChild(sourceMd)
+        const sourceLg = document.createElement('source')
+        sourceLg.setAttribute('src', object.images.lg.mainImage.src)
+        sourceLg.setAttribute('type', 'image/webp')
+        sourceLg.setAttribute('media', '(min-width: 1200px)')
+        picture.appendChild(sourceLg)
 
-      const sourceSm = document.createElement('source')
-      sourceSm.setAttribute('src', object.images.sm.mainImage.src)
-      sourceSm.setAttribute('type', 'image/webp')
-      sourceSm.setAttribute('media', '(min-width: 768px)')
-      picture.appendChild(sourceSm)
+        const sourceMd = document.createElement('source')
+        sourceMd.setAttribute('src', object.images.md.mainImage.src)
+        sourceMd.setAttribute('type', 'image/webp')
+        sourceMd.setAttribute('media', '(min-width: 992px)')
+        picture.appendChild(sourceMd)
 
-      const sourceXs = document.createElement('source')
-      sourceXs.setAttribute('src', object.images.xs.mainImage.src)
-      sourceXs.setAttribute('type', 'image/webp')
-      sourceXs.setAttribute('media', '(min-width: 600px)')
-      picture.appendChild(sourceXs)
+        const sourceSm = document.createElement('source')
+        sourceSm.setAttribute('src', object.images.sm.mainImage.src)
+        sourceSm.setAttribute('type', 'image/webp')
+        sourceSm.setAttribute('media', '(min-width: 768px)')
+        picture.appendChild(sourceSm)
 
-      const mainImage = document.createElement('img')
-      mainImage.setAttribute('src', object.images.lg.mainImage.src)
-      mainImage.setAttribute('alt', object.images.lg.mainImage.alt)
-      mainImage.setAttribute('title', object.images.lg.mainImage.title)
-      picture.appendChild(mainImage)
+        const sourceXs = document.createElement('source')
+        sourceXs.setAttribute('src', object.images.xs.mainImage.src)
+        sourceXs.setAttribute('type', 'image/webp')
+        sourceXs.setAttribute('media', '(min-width: 600px)')
+        picture.appendChild(sourceXs)
+
+        const mainImage = document.createElement('img')
+        mainImage.setAttribute('src', object.images.lg.mainImage.src)
+        mainImage.setAttribute('alt', object.images.lg.mainImage.alt)
+        mainImage.setAttribute('title', object.images.lg.mainImage.title)
+        picture.appendChild(mainImage)
+      }
     })
   }
 }
 
 customElements.define('schedule-component', Schedule)
-
-{ /* <section class="schedule">
-<div class="frame-row-slot col-1 frame">
-  <h3>Escenario 1</h3>
-</div>
-<div class="frame-row-slot col-2 frame">
-  <h3>Escenario 2</h3>
-</div>
-<div class="frame-row-slot col-3 frame">
-  <h3>Escenario 3</h3>
-</div>
-<div class="frame-row-slot col-4 frame">
-  <h3>Escenario 4</h3>
-</div>
-<div class="frame-column-slot frame">
-  <h3>10h00-12h00</h3>
-</div>
-<div class="frame-column-slot frame">
-  <h3>12h00-14h00</h3>
-</div>
-<div class="frame-column-slot frame">
-  <h3>14h00-15h00</h3>
-</div>
-<div class="frame-column-slot frame">
-  <h3>15h00-17h00</h3>
-</div>
-<div class="frame-column-slot frame">
-  <h3>17h00-19h00</h3>
-</div>
-<div class="content-slot col-1 row-1 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller A1</h3>
-</div>
-<div class="content-slot col-2 row-1 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller A2</h3>
-</div>
-<div class="content-slot col-3 row-1 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller A3</h3>
-</div>
-<div class="content-slot col-4 row-1 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller A4</h3>
-</div>
-<div class="content-slot col-1 row-2 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller B1</h3>
-</div>
-<div class="content-slot col-2 row-2 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller B2</h3>
-</div>
-<div class="content-slot col-3 row-2 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller B3</h3>
-</div>
-<div class="content-slot col-4 row-2 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller B4</h3>
-</div>
-<div class="content-slot col-all content">
-  <h3>Almuerzo (+ 15€ adultos | + 10€ niños)</h3>
-</div>
-<div class="content-slot col-1 row-3 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller D1</h3>
-</div>
-<div class="content-slot col-2 row-3 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller D2</h3>
-</div>
-<div class="content-slot col-3 row-3 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller D3</h3>
-</div>
-<div class="content-slot col-4 row-3 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller D4</h3>
-</div>
-<div class="content-slot col-1 row-4 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller E1</h3>
-</div>
-<div class="content-slot col-2 row-4 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller E2</h3>
-</div>
-<div class="content-slot col-3 row-4 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller E3</h3>
-</div>
-<div class="content-slot col-4 row-4 content">
-  <div class="slot-image">
-    <picture>
-      <source srcset="./public/watercolor.webp" type="image/webp">
-      <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-    </picture>
-  </div>
-  <h3>Taller E4</h3>
-</div>
-</section> */ }
