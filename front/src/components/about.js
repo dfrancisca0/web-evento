@@ -17,10 +17,10 @@ class About extends HTMLElement {
           title: 'about us',
           alt: 'people jumping at the beach',
           xs: {
-            src: '/public/people-jumping.webp'
+            src: '/public/people-jumping-mobile.webp'
           },
           sm: {
-            src: '/public/people-jumping.webp'
+            src: '/public/people-jumping-mobile.webp'
           },
           md: {
             src: '/public/people-jumping.webp'
@@ -33,10 +33,10 @@ class About extends HTMLElement {
           title: 'organizers',
           alt: 'group of people',
           xs: {
-            src: '/public/group-people.webp'
+            src: '/public/group-people-mobile.webp'
           },
           sm: {
-            src: '/public/group-people.webp'
+            src: '/public/group-people-mobile.webp'
           },
           md: {
             src: '/public/group-people.webp'

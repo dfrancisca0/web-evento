@@ -159,7 +159,7 @@ class AddButton extends HTMLElement {
 
     const button = this.shadow.querySelector('button')
 
-    button.addEventListener('click', function () {
+    button.addEventListener('click', () => {
       this.addElement()
     })
   }
