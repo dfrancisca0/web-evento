@@ -13,172 +13,8 @@ class ProductGallery extends HTMLElement {
   }
 
   async loadData () {
-    this.data = [
-      {
-        title: 'Acuarela',
-        category: 'Familiares',
-        startTime: '10h00',
-        endTime: '12h00',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        images: {
-          xs: {
-            mainImage: {
-              title: 'watercolor workshop',
-              src: '/public/watercolor-mobile.webp',
-              type: 'image/webp',
-              alt: 'watercolor'
-            }
-          },
-          sm: {
-            mainImage: {
-              title: 'watercolor workshop',
-              src: '/public/watercolor-mobile.webp',
-              type: 'image/webp',
-              alt: 'watercolor'
-            }
-          },
-          md: {
-            mainImage: {
-              title: 'watercolor workshop',
-              src: '/public/watercolor.webp',
-              type: 'image/webp',
-              alt: 'watercolor'
-            }
-          },
-          lg: {
-            mainImage: {
-              title: 'watercolor workshop',
-              src: '/public/watercolor.webp',
-              type: 'image/webp',
-              alt: 'watercolor'
-            }
-          }
-        }
-      },
-      {
-        title: 'Lettering',
-        category: 'Adultos',
-        startTime: '12h00',
-        endTime: '14h00',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        images: {
-          xs: {
-            mainImage: {
-              title: 'lettering workshop',
-              src: '/public/lettering-mobile.webp',
-              type: 'image/webp',
-              alt: 'lettering'
-            }
-          },
-          sm: {
-            mainImage: {
-              title: 'lettering workshop',
-              src: '/public/lettering-mobile.webp',
-              type: 'image/webp',
-              alt: 'lettering'
-            }
-          },
-          md: {
-            mainImage: {
-              title: 'lettering workshop',
-              src: '/public/lettering.webp',
-              type: 'image/webp',
-              alt: 'lettering'
-            }
-          },
-          lg: {
-            mainImage: {
-              title: 'lettering workshop',
-              src: '/public/lettering.webp',
-              type: 'image/webp',
-              alt: 'lettering'
-            }
-          }
-        }
-      },
-      {
-        title: 'Velas',
-        category: 'Adultos',
-        startTime: '15h00',
-        endTime: '17h00',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        images: {
-          xs: {
-            mainImage: {
-              title: 'candle making workshop',
-              src: '/public/candle-making-mobile.webp',
-              type: 'image/webp',
-              alt: 'candle making'
-            }
-          },
-          sm: {
-            mainImage: {
-              title: 'candle making workshop',
-              src: '/public/candle-making-mobile.webp',
-              type: 'image/webp',
-              alt: 'candle making'
-            }
-          },
-          md: {
-            mainImage: {
-              title: 'candle making workshop',
-              src: '/public/candle-making.webp',
-              type: 'image/webp',
-              alt: 'candle making'
-            }
-          },
-          lg: {
-            mainImage: {
-              title: 'candle making workshop',
-              src: '/public/candle-making.webp',
-              type: 'image/webp',
-              alt: 'candle making'
-            }
-          }
-        }
-      },
-      {
-        title: 'Escritura',
-        category: 'Niños',
-        startTime: '17h00',
-        endTime: '19h00',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-        images: {
-          xs: {
-            mainImage: {
-              title: 'writing workshop',
-              src: '/public/writing-mobile.webp',
-              type: 'image/webp',
-              alt: 'writing'
-            }
-          },
-          sm: {
-            mainImage: {
-              title: 'writing workshop',
-              src: '/public/writing-mobile.webp',
-              type: 'image/webp',
-              alt: 'writing'
-            }
-          },
-          md: {
-            mainImage: {
-              title: 'writing workshop',
-              src: '/public/writing.webp',
-              type: 'image/webp',
-              alt: 'writing'
-            }
-          },
-          lg: {
-            mainImage: {
-              title: 'writing workshop',
-              src: '/public/writing.webp',
-              type: 'image/webp',
-              alt: 'writing'
-            }
-          }
-        }
-      }
-    ]
+    const response = await fetch('/src/data/product-gallery.json')
+    this.data = await response.json()
   }
 
   async handleFilterProducts (event) {
@@ -197,6 +33,13 @@ class ProductGallery extends HTMLElement {
         }
       })
     }
+
+    // handleShowNotification (event) {
+    //   const products = event.detail.category === 'todos' ? this.data : this.data.filter(product => product.category === event.detail.category)
+    //   this.render(products)
+    // }
+
+    // render (products = this.data) {}
   }
 
   async render () {

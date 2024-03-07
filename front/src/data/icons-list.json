@@ -1,0 +1,22 @@
+[
+  {
+    "title": "instagram",
+    "link": "",
+    "svg": "/public/instagram-logo.svg"
+  },
+  {
+    "title": "whatsapp",
+    "link": "",
+    "svg": "/public/whatsapp-logo.svg"
+  },
+  {
+    "title": "mail",
+    "link": "",
+    "svg": "/public/mail-logo.svg"
+  },
+  {
+    "title": "phone",
+    "link": "",
+    "svg": "/public/phone-logo.svg"
+  }
+]

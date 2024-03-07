@@ -11,31 +11,11 @@ class IconsList extends HTMLElement {
   }
 
   async loadData () {
-    this.data = [
-      {
-        title: 'instagram',
-        link: '',
-        svg: '/public/instagram-logo.svg'
-      },
-      {
-        title: 'whatsapp',
-        link: '',
-        svg: '/public/whatsapp-logo.svg'
-      },
-      {
-        title: 'mail',
-        link: '',
-        svg: '/public/mail-logo.svg'
-      },
-      {
-        title: 'phone',
-        link: '',
-        svg: '/public/phone-logo.svg'
-      }
-    ]
+    const response = await fetch('/src/data/icons-list.json')
+    this.data = await response.json()
   }
 
-  render () {
+  async render () {
     this.shadow.innerHTML =
       /* html */`
       

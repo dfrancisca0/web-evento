@@ -1,0 +1,687 @@
+{
+  "stages": [
+    {
+      "title": "Escenario 1",
+      "stage": 1,
+      "time": 0,
+      "category": ["frame-row-slot", "col-1"]
+    },
+    {
+      "title": "Escenario 2",
+      "stage": 2,
+      "time": 0,
+      "category": ["frame-row-slot", "col-2"]
+    },
+    {
+      "title": "Escenario 3",
+      "stage": 3,
+      "time": 0,
+      "category": ["frame-row-slot", "col-3"]
+    },
+    {
+      "title": "Escenario 4",
+      "stage": 4,
+      "time": 0,
+      "category": ["frame-row-slot", "col-4"]
+    }
+  ],
+  "times": [
+    {
+      "title": "10h00 - 12h00",
+      "stage": 0,
+      "time": 1
+    },
+    {
+      "title": "12h00 - 14h00",
+      "stage": 0,
+      "time": 2
+    },
+    {
+      "title": "14h00 - 15h00",
+      "stage": 0,
+      "time": 3
+    },
+    {
+      "title": "15h00 - 17h00",
+      "stage": 0,
+      "time": 4
+    },
+    {
+      "title": "17h00 - 19h00",
+      "stage": 0,
+      "time": 5
+    }
+  ],
+  "activities": [
+    {
+      "title": "Taller A1",
+      "stage": 1,
+      "time": 1,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller A2",
+      "stage": 2,
+      "time": 1,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller A3",
+      "stage": 3,
+      "time": 1,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller A4",
+      "stage": 4,
+      "time": 1,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller B1",
+      "stage": 1,
+      "time": 2,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller B2",
+      "stage": 2,
+      "time": 2,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller B3",
+      "stage": 3,
+      "time": 2,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller B4",
+      "stage": 4,
+      "time": 2,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Almuerzo (+ 15€ adultos | + 10€ niños)",
+      "category": "col-all",
+      "stage": 1,
+      "time": 3
+    },
+    {
+      "title": "Taller D1",
+      "stage": 1,
+      "time": 4,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller D2",
+      "stage": 2,
+      "time": 4,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller D3",
+      "stage": 3,
+      "time": 4,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller D4",
+      "stage": 4,
+      "time": 4,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller E1",
+      "stage": 1,
+      "time": 5,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller E2",
+      "stage": 2,
+      "time": 5,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller E3",
+      "stage": 3,
+      "time": 5,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    },
+    {
+      "title": "Taller E4",
+      "stage": 4,
+      "time": 5,
+      "images": {
+        "xs": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "sm": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor-mobile.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "md": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        },
+        "lg": {
+          "mainImage": {
+            "title": "watercolor workshop",
+            "src": "/public/watercolor.webp",
+            "type": "image/webp",
+            "alt": "watercolor"
+          }
+        }
+      }
+    }
+  ]
+}
