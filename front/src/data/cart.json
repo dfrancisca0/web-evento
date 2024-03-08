@@ -1,0 +1,107 @@
+[
+  {
+    "title": "Taller de Acuarela",
+    "quantity": "",
+    "images": {
+      "xs": {
+        "src": "/public/watercolor-mobile.webp",
+        "alt": "watercolor",
+        "title": "watercolor workshop"
+      },
+      "sm": {
+        "src": "/public/watercolor-mobile.webp",
+        "alt": "watercolor",
+        "title": "watercolor workshop"
+      },
+      "md": {
+        "src": "/public/watercolor.webp",
+        "alt": "watercolor",
+        "title": "watercolor workshop"
+      },
+      "lg": {
+        "src": "/public/watercolor.webp",
+        "alt": "watercolor",
+        "title": "watercolor workshop"
+      }
+    }
+  },
+  {
+    "title": "Taller de Letetring",
+    "quantity": "",
+    "images": {
+      "xs": {
+        "src": "/public/lettering-mobile.webp",
+        "alt": "lettering",
+        "title": "lettering workshop"
+      },
+      "sm": {
+        "src": "/public/lettering-mobile.webp",
+        "alt": "lettering",
+        "title": "lettering workshop"
+      },
+      "md": {
+        "src": "/public/lettering.webp",
+        "alt": "lettering",
+        "title": "lettering workshop"
+      },
+      "lg": {
+        "src": "/public/lettering.webp",
+        "alt": "lettering",
+        "title": "lettering workshop"
+      }
+    }
+  },
+  {
+    "title": "Taller de Velas",
+    "quantity": "",
+    "images": {
+      "xs": {
+        "src": "/public/candle-making-mobile.webp",
+        "alt": "candle making",
+        "title": "candle making workshop"
+      },
+      "sm": {
+        "src": "/public/candle-making-mobile.webp",
+        "alt": "candle making",
+        "title": "candle making workshop"
+      },
+      "md": {
+        "src": "/public/candle-making.webp",
+        "alt": "candle making",
+        "title": "candle making workshop"
+      },
+      "lg": {
+        "src": "/public/candle-making.webp",
+        "alt": "candle making",
+        "title": "candle making workshop"
+      }
+    }
+  },
+  {
+    "title": "Taller de Escritura",
+    "quantity": "",
+    "images": {
+      "xs": {
+        "src": "/public/writing-mobile.webp",
+        "alt": "writing",
+        "title": "writing workshop"
+      },
+      "sm": {
+        "src": "/public/writing-mobile.webp",
+        "alt": "writing",
+        "title": "writing workshop"
+      },
+      "md": {
+        "src": "/public/writing.webp",
+        "alt": "writing",
+        "title": "writing workshop"
+      },
+      "lg": {
+        "src": "/public/writing.webp",
+        "alt": "writing",
+        "title": "writing workshop"
+      }
+    }
+  }
+]
+
