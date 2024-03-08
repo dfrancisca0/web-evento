@@ -129,16 +129,24 @@ class Cart extends HTMLElement {
         }
 
         .product-content {
+          position: relative;
           width: 70%;
           padding: 1rem 0;
+        }
+
+        .product-title {
+          width: 80%
         }
 
         .plus-minus-button {
           padding: .7rem 0;
         }
 
-        .cart-product .cart-close-button {
+        .remove-button {
+          position: absolute;
           padding: .5rem;
+          top: 0;
+          right: 0;
         }
 
         .cart-product svg {
@@ -237,84 +245,7 @@ class Cart extends HTMLElement {
             <p>Dinos cuántas personas quieres apuntar a cada actividad</p>
           </div>  
         </div>
-        <div class="cart-products">
-          <div class="cart-product">
-            <div class="product-picture">
-              <picture>
-                <source srcset="./public/watercolor.webp" type="image/webp">
-                <img src="./public/watercolor.webp" alt="watercolor" title="watercolor workshop">
-              </picture>
-            </div>
-            <div class="product-content">
-              <div class="product-title">
-                <h3></h3>
-              </div>
-              <div class="plus-minus-button">
-                <plus-minus-button-component></plus-minus-button-component>
-              </div>
-            </div>
-            <div class="cart-close-button">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>window-close</title><path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" /></svg>
-            </div>
-          </div>
-          <div class="cart-product">
-            <div class="product-picture">
-              <picture>
-                <source srcset="./public/lettering.webp" type="image/webp">
-                <img src="./public/lettering.webp" alt="lettering" title="lettering workshop">
-              </picture>
-            </div>
-            <div class="product-content">
-              <div class="product-title">
-                <h3></h3>
-              </div>
-              <div class="plus-minus-button">
-                <plus-minus-button-component></plus-minus-button-component>
-              </div>
-            </div>
-            <div class="cart-close-button">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>window-close</title><path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" /></svg>
-            </div>
-          </div>
-          <div class="cart-product">
-            <div class="product-picture">
-              <picture>
-                <source srcset="./public/candle-making.webp" type="image/webp">
-                <img src="./public/candle-making.webp" alt="candle making" title="candle making workshop">
-              </picture>
-            </div>
-            <div class="product-content">
-              <div class="product-title">
-                <h3></h3>
-              </div>
-              <div class="plus-minus-button">
-                <plus-minus-button-component></plus-minus-button-component>
-              </div>
-            </div>
-            <div class="cart-close-button">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>window-close</title><path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" /></svg>
-            </div>
-          </div>
-          <div class="cart-product">
-            <div class="product-picture">
-              <picture>
-                <source srcset="./public/writing.webp" type="image/webp">
-                <img src="./public/writing.webp" alt="writing" title="writing workshop">
-              </picture>
-            </div>
-            <div class="product-content">
-              <div class="product-title">
-                <h3></h3>
-              </div>
-              <div class="plus-minus-button">
-                <plus-minus-button-component></plus-minus-button-component>
-              </div>
-            </div>
-            <div class="cart-close-button">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>window-close</title><path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" /></svg>
-            </div>
-          </div>
-        </div>
+        <div class="cart-products"></div>
         <div class="cart-form">
           <form>
             <div class="form-element">
@@ -369,12 +300,13 @@ class Cart extends HTMLElement {
       this.sendForm()
     })
 
-    const products = this.shadow.querySelector('.cart-products')
+    const cart = this.shadow.querySelector('.cart-products')
+    const products = this.data
 
     products.forEach(product => {
       const cartProduct = document.createElement('div')
       cartProduct.classList.add('cart-product')
-      products.appendChild(cartProduct)
+      cart.appendChild(cartProduct)
 
       const productPicture = document.createElement('div')
       productPicture.classList.add('product-picture')
@@ -424,7 +356,89 @@ class Cart extends HTMLElement {
       const titleElement = document.createElement('h3')
       titleElement.textContent = product.title
       productTitle.appendChild(titleElement)
+
+      const plusMinusButtonContainer = document.createElement('div')
+      plusMinusButtonContainer.classList.add('plus-minus-button')
+      productContent.appendChild(plusMinusButtonContainer)
+
+      const plusMinusButton = document.createElement('plus-minus-button-component')
+      plusMinusButtonContainer.appendChild(plusMinusButton)
+
+      const removeButton = document.createElement('div')
+      removeButton.classList.add('remove-button')
+      removeButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" /></svg>'
+
+      productContent.appendChild(removeButton)
     })
+  }
+
+  async addProduct (product) {
+    const cart = this.shadow.querySelector('.cart-products')
+    const cartProduct = document.createElement('div')
+    cartProduct.classList.add('cart-product')
+    cart.appendChild(cartProduct)
+
+    const productPicture = document.createElement('div')
+    productPicture.classList.add('product-picture')
+    cartProduct.appendChild(productPicture)
+
+    const pictureElement = document.createElement('picture')
+    productPicture.appendChild(pictureElement)
+
+    const sourceLg = document.createElement('source')
+    sourceLg.setAttribute('src', product.images.lg.src)
+    sourceLg.setAttribute('type', 'image/webp')
+    sourceLg.setAttribute('media', '(min-width: 1200px)')
+    pictureElement.appendChild(sourceLg)
+
+    const sourceMd = document.createElement('source')
+    sourceMd.setAttribute('src', product.images.md.src)
+    sourceMd.setAttribute('type', 'image/webp')
+    sourceMd.setAttribute('media', '(min-width: 992px)')
+    pictureElement.appendChild(sourceMd)
+
+    const sourceSm = document.createElement('source')
+    sourceSm.setAttribute('src', product.images.sm.src)
+    sourceSm.setAttribute('type', 'image/webp')
+    sourceSm.setAttribute('media', '(min-width: 768px)')
+    pictureElement.appendChild(sourceSm)
+
+    const sourceXs = document.createElement('source')
+    sourceXs.setAttribute('src', product.images.xs.src)
+    sourceXs.setAttribute('type', 'image/webp')
+    sourceXs.setAttribute('media', '(min-width: 600px)')
+    pictureElement.appendChild(sourceXs)
+
+    const image = document.createElement('img')
+    image.setAttribute('src', product.images.lg.src)
+    image.setAttribute('alt', product.images.lg.alt)
+    image.setAttribute('title', product.images.lg.title)
+    pictureElement.appendChild(image)
+
+    const productContent = document.createElement('div')
+    productContent.classList.add('product-content')
+    cartProduct.appendChild(productContent)
+
+    const productTitle = document.createElement('div')
+    productTitle.classList.add('product-title')
+    productContent.appendChild(productTitle)
+
+    const titleElement = document.createElement('h3')
+    titleElement.textContent = product.title
+    productTitle.appendChild(titleElement)
+
+    const plusMinusButtonContainer = document.createElement('div')
+    plusMinusButtonContainer.classList.add('plus-minus-button')
+    productContent.appendChild(plusMinusButtonContainer)
+
+    const plusMinusButton = document.createElement('plus-minus-button-component')
+    plusMinusButtonContainer.appendChild(plusMinusButton)
+
+    const removeButton = document.createElement('div')
+    removeButton.classList.add('remove-button')
+    removeButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" /></svg>'
+
+    productContent.appendChild(removeButton)
   }
 
   async sendForm () {
@@ -432,16 +446,21 @@ class Cart extends HTMLElement {
     const formData = new FormData(form)
     const formDataJson = Object.fromEntries(formData.entries())
 
-    console.log(formDataJson)
+    const response = await fetch('http://localhost:5173/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formDataJson)
+    })
 
-    // const response = await fetch('http://localhost:5173/'), {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body:JSON.stringify(formDataJson)
+    const message = response.json()
 
-    // }
+    document.dispatchEvent(new CustomEvent('message', {
+      detail: {
+        text: message
+      }
+    }))
   }
 }
 
