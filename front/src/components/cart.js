@@ -155,53 +155,6 @@ class Cart extends HTMLElement {
           fill: hsla(0, 0%, 70%, 1);
         }
 
-        .cart-form {
-          height: 50%;
-          box-sizing: border-box;
-          border-top: thin dashed hsla(0, 0%, 70%, 1); 
-          background-color: hsla(0, 100%, 100%, 1);
-          font-size: .9rem;
-          font-weight: bold;
-          padding: 1rem;
-        }
-
-        .form-element{
-          display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
-        }
-
-        .form-element-label{
-          padding: 1rem 0 0 0;
-        }
-
-        .form-element-label label{
-          font-size: 0.9rem;
-          font-weight: 600;
-        }
-        
-        .form-element-input input {
-          height: 2rem;
-          width: 95%;
-          border: 1px solid hsla(0, 0%, 70%, 1); 
-          border-radius: 5px;
-        }
-
-        .form-checkbox {
-          width: 100%;
-          padding: 1rem 0;
-        }
-
-        .form-checkbox label {
-          font-weight: normal;
-        }
-
-        .form-checkbox input {
-          height: 1rem;
-          width:1rem;
-          cursor: pointer;
-        }
-
         button {
           width: 100%;
           margin: 1rem 0;
@@ -246,47 +199,12 @@ class Cart extends HTMLElement {
           </div>  
         </div>
         <div class="cart-products"></div>
-        <div class="cart-form">
-          <form>
-            <div class="form-element">
-              <div class="form-element-label">
-                <label for="name">Nombre</label><br>  
-              </div>
-              <div class="form-element-input">
-                <input type="text" id="name" name="name"><br>  
-              </div>
-            </div>
-            <div class="form-element">
-              <div class="form-element-label">
-                <label for="name">Apellido</label><br> 
-              </div> 
-              <div class="form-element-input">
-                <input type="text" id="name" name="last-name"><br> 
-              </div> 
-            </div>
-            <div class="form-element">
-              <div class="form-element-label">
-                <label for="email">Correo electrónico</label><br>  
-              </div>
-              <div class="form-element-input">
-                <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" size="30" required />
-              </div>
-            </div>
-            <div class="form-checkbox"> 
-              <input type="checkbox" id="newsletter" name="newsletter" value="true">   
-              <label for="newsletter">Quiero recibir información sobre eventos futuros<label>
-            </div>
-          </form>
-          <div class="send-button">
-            <button>Reserva tu plaza</button>
-          </div>
-        </div>
+        <checkout-form-component></checkout-form-component>
       </section>
       `
     const cartButton = this.shadow.querySelector('.cart-button')
     const cartOpen = this.shadow.querySelector('.cart')
     const cartCloseButton = this.shadow.querySelector('.cart-close-button')
-    const sendButton = this.shadow.querySelector('.send-button')
 
     cartButton.addEventListener('click', () => {
       cartOpen.classList.add('active')
@@ -294,10 +212,6 @@ class Cart extends HTMLElement {
 
     cartCloseButton.addEventListener('click', () => {
       cartOpen.classList.remove('active')
-    })
-
-    sendButton.addEventListener('click', () => {
-      this.sendForm()
     })
 
     const cart = this.shadow.querySelector('.cart-products')
