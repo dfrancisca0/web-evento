@@ -31,6 +31,8 @@ class CheckoutForm extends HTMLElement {
         }
 
         .form-element-label{
+          display: flex;
+          justify-content: space-between;
           padding: 1rem 0 0 0;
         }
 
@@ -41,7 +43,7 @@ class CheckoutForm extends HTMLElement {
         
         .form-element-input input {
           height: 2rem;
-          width: 95%;
+          width: 100%;
           border: 1px solid hsla(0, 0%, 70%, 1); 
           border-radius: 5px;
         }
@@ -73,38 +75,49 @@ class CheckoutForm extends HTMLElement {
           font-weight: bold;
         }
 
-        @media (hover: hover) {
-          button:hover {
-            background-color: hsla(48, 93%, 53%, .8);
-            color: hsla(0, 0%, 0%, 1);
-          }
+        button:hover {
+          background-color: hsla(48, 93%, 53%, .8);
+          color: hsla(0, 0%, 0%, 1);
+        }
+
+        .form-element-input input.validation-error {
+          border-color: hsla(0, 100%, 50%, 1)
+        }
+
+        .validation-message {
+          color: hsla(0, 100%, 50%, 1);
+          font-weight: normal;
+          font-size: 0.8rem
         }
 
       </style>
         <section class="checkout">
+          <div class="validation-message">
+            <ul></ul>
+          </div>
           <form>
             <div class="form-element">
               <div class="form-element-label">
-                <label for="name">Nombre</label><br>  
+                <label for="name">Nombre</label>
               </div>
               <div class="form-element-input">
-                <input type="text" id="name" name="name"><br>  
+                <input type="text" id="name" name="name" data-validate="onlyLetters" data-validate-message= "Sólo se admiten letras"> 
               </div>
             </div>
             <div class="form-element">
               <div class="form-element-label">
-                <label for="name">Apellido</label><br> 
+                <label for="name">Apellido</label> 
               </div> 
               <div class="form-element-input">
-                <input type="text" id="name" name="last-name"><br> 
+                <input type="text" id="name" name="last-name" data-validate="onlyLetters" data-validate-message= "Sólo se admiten letras">
               </div> 
             </div>
             <div class="form-element">
               <div class="form-element-label">
-                <label for="email">Correo electrónico</label><br>  
+                <label for="email">Correo electrónico</label> 
               </div>
               <div class="form-element-input">
-                <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" size="30" required />
+                <input type="email" id="email" name="email" data-validate="email" data-validate-message= "Tiene que ser una dirección válida"/>
               </div>
             </div>
             <div class="form-checkbox"> 
@@ -127,6 +140,10 @@ class CheckoutForm extends HTMLElement {
 
   async sendForm () {
     const form = this.shadow.querySelector('form')
+
+    if (!this.validateForm(form.elements)) {
+      return
+    }
     const formData = new FormData(form)
     const formDataJson = Object.fromEntries(formData.entries())
 
@@ -145,6 +162,53 @@ class CheckoutForm extends HTMLElement {
         text: message
       }
     }))
+  }
+
+  validateForm (elements) {
+    let validForm = true
+
+    const validators = {
+      onlyLetters: /^[a-zA-Z\s]+$/g,
+      onlyNumbers: /\d/g,
+      telephone: /^\d{9}$/g,
+      email: /\w+@\w+\.\w+/g,
+      web: /^(http|https):\/\/\w+\.\w+/g,
+      password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/g,
+      date: /^\d{4}-\d{2}-\d{2}$/g,
+      time: /^\d{2}:\d{2}$/g
+    }
+
+    for (const element of elements) {
+      if (element.dataset.validate) {
+        const validator = validators[element.dataset.validate]
+        const valid = element.value.match(validator)
+
+        if (valid === null) {
+          validForm = false
+          const validationMessage = element.dataset.validateMessage
+          element.classList.add('validation-error')
+
+          const label = element.closest('.form-element').querySelector('.form-element-label')
+
+          if (!label.querySelector('.validation-message')) {
+            const validationMessageSpan = document.createElement('span')
+            validationMessageSpan.classList.add('validation-message')
+            validationMessageSpan.textContent = validationMessage
+
+            label.appendChild(validationMessageSpan)
+          }
+        } else {
+          element.classList.remove('validation-error')
+
+          const validationMessageSpan = element.closest('.form-element').querySelector('.validation-message')
+
+          if (validationMessageSpan) {
+            validationMessageSpan.remove()
+          }
+        }
+      }
+    }
+    return validForm
   }
 }
 
