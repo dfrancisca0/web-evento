@@ -1,0 +1,26 @@
+{
+  "id": "3",
+  "title": "Taller de Velas",
+  "images": {
+    "xs": {
+      "src": "/public/candle-making-mobile.webp",
+      "alt": "candle making",
+      "title": "candle making workshop"
+    },
+    "sm": {
+      "src": "/public/candle-making-mobile.webp",
+      "alt": "candle making",
+      "title": "candle making workshop"
+    },
+    "md": {
+      "src": "/public/candle-making.webp",
+      "alt": "candle making",
+      "title": "candle making workshop"
+    },
+    "lg": {
+      "src": "/public/candle-making.webp",
+      "alt": "candle making",
+      "title": "candle making workshop"
+    }
+  }
+}

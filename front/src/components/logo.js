@@ -31,7 +31,7 @@ class Logo extends HTMLElement {
     logo.appendChild(logoImage)
 
     const itemLink = document.createElement('a')
-    itemLink.setAttribute('href', '/index.html')
+    itemLink.setAttribute('href', '/')
     logoImage.appendChild(itemLink)
 
     const itemImage = document.createElement('img')

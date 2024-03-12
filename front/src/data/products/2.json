@@ -1,0 +1,26 @@
+{
+  "id": "2",
+  "title": "Taller de Letetring",
+  "images": {
+    "xs": {
+      "src": "/public/lettering-mobile.webp",
+      "alt": "lettering",
+      "title": "lettering workshop"
+    },
+    "sm": {
+      "src": "/public/lettering-mobile.webp",
+      "alt": "lettering",
+      "title": "lettering workshop"
+    },
+    "md": {
+      "src": "/public/lettering.webp",
+      "alt": "lettering",
+      "title": "lettering workshop"
+    },
+    "lg": {
+      "src": "/public/lettering.webp",
+      "alt": "lettering",
+      "title": "lettering workshop"
+    }
+  }
+}

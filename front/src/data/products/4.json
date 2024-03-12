@@ -1,0 +1,26 @@
+{
+  "id": "4",
+  "title": "Taller de Escritura",
+  "images": {
+    "xs": {
+      "src": "/public/writing-mobile.webp",
+      "alt": "writing",
+      "title": "writing workshop"
+    },
+    "sm": {
+      "src": "/public/writing-mobile.webp",
+      "alt": "writing",
+      "title": "writing workshop"
+    },
+    "md": {
+      "src": "/public/writing.webp",
+      "alt": "writing",
+      "title": "writing workshop"
+    },
+    "lg": {
+      "src": "/public/writing.webp",
+      "alt": "writing",
+      "title": "writing workshop"
+    }
+  }
+}

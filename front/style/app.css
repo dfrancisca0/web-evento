@@ -4,15 +4,3 @@ body {
     min-height: 100vh;
     height: 100vh;
 }
-
-header {
-    position: sticky;
-    display: flex;
-    background-color: hsla(0, 0%, 0%, 1);
-    width: 90%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1% 5%;
-    top: 0;
-    z-index: 5000;
-}

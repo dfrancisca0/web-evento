@@ -1,0 +1,26 @@
+{
+  "id": "1",
+  "title": "Taller de Acuarela",
+  "images": {
+    "xs": {
+      "src": "/public/watercolor-mobile.webp",
+      "alt": "watercolor",
+      "title": "watercolor workshop"
+    },
+    "sm": {
+      "src": "/public/watercolor-mobile.webp",
+      "alt": "watercolor",
+      "title": "watercolor workshop"
+    },
+    "md": {
+      "src": "/public/watercolor.webp",
+      "alt": "watercolor",
+      "title": "watercolor workshop"
+    },
+    "lg": {
+      "src": "/public/watercolor.webp",
+      "alt": "watercolor",
+      "title": "watercolor workshop"
+    }
+  }
+}

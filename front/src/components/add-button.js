@@ -39,6 +39,7 @@ class AddButton extends HTMLElement {
           border: 2px solid ${this.color};
           padding: 0;
           position: relative;
+          cursor: pointer;
         }
 
         .add-button.active {
@@ -116,7 +117,6 @@ class AddButton extends HTMLElement {
 
         :host(:not([disable-hover])) .add-button:hover {
           background-color: transparent !important;
-          cursor: default !important;
         }
 
         :host(:not([disable-hover])) .add-button.active:hover {

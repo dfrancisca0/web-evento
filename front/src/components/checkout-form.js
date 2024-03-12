@@ -101,7 +101,14 @@ class CheckoutForm extends HTMLElement {
                 <label for="name">Nombre</label>
               </div>
               <div class="form-element-input">
-                <input type="text" id="name" name="name" data-validate='{"required": "Campo obligatorio", "minLength": 3, "onlyLetters": "Sólo se admiten letras"}'/> 
+                <input type="text" id="name" name="name" data-validate='{
+                  "required": {
+                    "message": "Campo obligatorio"
+                  }, 
+                  "onlyLetters": {
+                    "message": "Sólo se admiten letras"
+                  }
+                }'/> 
               </div>
             </div>
             <div class="form-element">
@@ -109,7 +116,14 @@ class CheckoutForm extends HTMLElement {
                 <label for="name">Apellido</label> 
               </div> 
               <div class="form-element-input">
-                <input type="text" id="name" name="last-name" data-validate='{"required": "Campo obligatorio", "onlyLetters": "Sólo se admiten letras"}'/>
+                <input type="text" id="name" name="last-name"  data-validate='{
+                  "required": {
+                    "message": "Campo obligatorio"
+                  }, 
+                  "onlyLetters": {
+                    "message": "Sólo se admiten letras"
+                  }
+                }'/>
               </div> 
             </div>
             <div class="form-element">
@@ -117,7 +131,14 @@ class CheckoutForm extends HTMLElement {
                 <label for="email">Correo electrónico</label> 
               </div>
               <div class="form-element-input">
-                <input type="email" id="email" name="email" data-validate='{"required": "Campo obligatorio", "onlyLetters": "Debes ingresar una dirección válida"}'/>
+                <input type="email" id="email" name="email"  data-validate='{
+                  "required": {
+                    "message": "Campo obligatorio"
+                  }, 
+                  "onlyLetters": {
+                    "message": "Debes ingresar una dirección válida"
+                  }
+                }'/>
               </div>
             </div>
             <div class="form-checkbox"> 
@@ -132,12 +153,11 @@ class CheckoutForm extends HTMLElement {
       `
 
     const sendButton = this.shadow.querySelector('.send-button')
+    const validateInputs = this.shadow.querySelectorAll('input[data-validate]')
 
     sendButton.addEventListener('click', () => {
       this.sendForm()
     })
-
-    const validateInputs = this.shadow.querySelectorAll('input[data-validate]')
 
     validateInputs.forEach(validateInput => {
       validateInput.addEventListener('input', event => {
@@ -155,6 +175,7 @@ class CheckoutForm extends HTMLElement {
     }
     const formData = new FormData(form)
     const formDataJson = Object.fromEntries(formData.entries())
+    formDataJson.products = store.getState().cart.cartProducts
 
     const response = await fetch('http://localhost:5173/', {
       method: 'POST',
@@ -185,24 +206,77 @@ class CheckoutForm extends HTMLElement {
       password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/g,
       date: /^\d{4}-\d{2}-\d{2}$/g,
       time: /^\d{2}:\d{2}$/g,
-      required: /^/g,
-      minLength: /^/g
+      required: /^(?!\s*$).+/g,
+      minLength: (value) => new RegExp(`^.{${value},}$`),
+      maxLength: (value) => new RegExp(`^.{0,${value}}$`)
     }
 
     for (const element of elements) {
       if (element.dataset.validate) {
         const inputValidations = JSON.parse(elements.dataset.validate)
 
-        if (element.value === '' && element.dataset.validate.required) {
+        if (element.value === '' && inputValidations.required) {
+          if (!element.closest('.form-element').querySelector('.validation-error')) {
+            const messageContainer = document.createElement('span')
+            messageContainer.classList.add('validation-error')
+            messageContainer.textContent = inputValidations.required.message
+            element.closest('.form-element').querySelector('.form-element-label').appendChild(messageContainer)
+          } else {
+            element.closest('.form-element').querySelector('.validation-error').textContent = inputValidations.required.message
+          }
+
           return
         }
 
-        for (const [validator, message] of Object.entries(inputValidations)) {
-          const regex = validators[validator]
-          const valid = element.value.match(validator)
+    //     for (const [validator, validation] of Object.entries(inputValidations)) {
+    //       let regex = validators[validator]
+
+    //       if (validator === 'minLength') {
+    //         regex = validators[validator](validation.value)
+    //       }
+
+    //       if (validator === 'maxLength') {
+    //         regex = validators[validator](validation.value)
+    //       }
+
+    //       const valid = element.value.match(regex)
+
+    //       if (valid === null) {
+    //         element.classList.add('validation-error')
+    //         const label = element.closest('.form-element').querySelector('.form-element-label')
+
+    //         if (!label.querySelector('.validation-error')) {
+    //           const messageContainer = document.createElement('span')
+    //           messageContainer.classList.add('validation-error')
+    //           messageContainer.textContent = validation.message
+    //           label.appendChild(messageContainer)
+    //         }
+
+    //         validForm = false
+    //       } else {
+    //         element.classList.remove('validation-error')
+    //         element.closest('.form-element').querySelector('.validation-error')?.remove()
+    //       }
+    //     }
+    //   }
+    // }
+
+        for (const [validator, validation] of Object.entries(inputValidations)) {
+
+          let regex = validators[validator]
+
+          if (validator === 'minLength') {
+            regex = validators[validator](validation.value)
+          }
+
+          if (validator === 'maxLength') {
+            regex = validators[validator](validation.value)
+          }
+
+          const valid = element.value.match(regex)
 
           if (valid === null) {
-            validForm = false
+      
             const validationMessage = element.dataset.validateMessage
             element.classList.add('validation-error')
 
@@ -215,6 +289,7 @@ class CheckoutForm extends HTMLElement {
 
               label.appendChild(validationMessageSpan)
             }
+            validForm = false
           } else {
             element.classList.remove('validation-error')
 
