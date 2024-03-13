@@ -1,11 +1,31 @@
+import { store } from '../redux/store.js'
+import { addProduct, removeProduct } from '../redux/cart-slice.js'
+
 class Cart extends HTMLElement {
   constructor () {
     super()
     this.shadow = this.attachShadow({ mode: 'open' })
     this.data = []
+    this.unsubscribe = null
   }
 
   async connectedCallback () {
+    this.unsubscribe = store.subscribe(() => {
+      const currentState = store.getState()
+
+      console.log(currentState.cart.cartProducts)
+
+      if (currentState.cart.cartProducts.length > this.data.length) {
+        currentState.cart.cartProducts.forEach(async product => {
+          const cartProduct = this.data.some(cartProduct => cartProduct.id === product.id)
+
+          if (!cartProduct) {
+            await this.addProduct(product.id)
+          }
+        })
+      }
+    })
+
     await this.loadData()
     await this.render()
   }
@@ -97,6 +117,7 @@ class Cart extends HTMLElement {
         .cart-products {
           display: flex;
           flex-direction: column;
+          min-height: 40%;
           max-height: 40%;
           overflow-y: scroll;
           padding: 1rem;
@@ -155,6 +176,22 @@ class Cart extends HTMLElement {
           fill: hsla(0, 0%, 70%, 1);
         }
 
+        .cart-message {
+          display: flex;
+          flex-direction: column;
+          padding: 2rem 0;
+          font-size: 1.2rem;
+          font-weight: bold;
+          align-items: center;
+        }
+
+        .cart-message-image svg {
+          padding: 1rem;
+          height: 4rem;
+          width: 4rem;
+
+        }
+
         button {
           width: 100%;
           margin: 1rem 0;
@@ -203,196 +240,134 @@ class Cart extends HTMLElement {
       `
     const cartButton = this.shadow.querySelector('.cart-button')
     const cart = this.shadow.querySelector('.cart')
-    const cartCloseButton = this.shadow.querySelector('.cart-close-button')
+
+    cart.addEventListener('click', event => {
+      if (event.target.closest('.remove-button')) {
+        const removeButton = event.target.closest('.remove-button')
+        const productId = removeButton.getAttribute('data-product-id')
+
+        console.log(productId)
+
+        this.removeProduct(productId)
+      }
+
+      if (event.target.closest('.cart-close-button')) {
+        cart.classList.remove('active')
+      }
+    })
 
     cartButton.addEventListener('click', () => {
       cart.classList.add('active')
     })
 
-    cartCloseButton.addEventListener('click', () => {
-      cart.classList.remove('active')
-    })
+    const cartProducts = this.shadow.querySelector('.cart-products')
+    const products = this.data
 
-    // const cartProducts = this.shadow.querySelector('.cart-products')
-    // const products = this.data
-
-  //   products.forEach(product => {
-  //     const cartProduct = document.createElement('div')
-  //     cartProduct.classList.add('cart-product')
-  //     cartProducts.appendChild(cartProduct)
-
-  //     const productPicture = document.createElement('div')
-  //     productPicture.classList.add('product-picture')
-  //     cartProduct.appendChild(productPicture)
-
-  //     const pictureElement = document.createElement('picture')
-  //     productPicture.appendChild(pictureElement)
-
-  //     const sourceLg = document.createElement('source')
-  //     sourceLg.setAttribute('src', product.images.lg.src)
-  //     sourceLg.setAttribute('type', 'image/webp')
-  //     sourceLg.setAttribute('media', '(min-width: 1200px)')
-  //     pictureElement.appendChild(sourceLg)
-
-  //     const sourceMd = document.createElement('source')
-  //     sourceMd.setAttribute('src', product.images.md.src)
-  //     sourceMd.setAttribute('type', 'image/webp')
-  //     sourceMd.setAttribute('media', '(min-width: 992px)')
-  //     pictureElement.appendChild(sourceMd)
-
-  //     const sourceSm = document.createElement('source')
-  //     sourceSm.setAttribute('src', product.images.sm.src)
-  //     sourceSm.setAttribute('type', 'image/webp')
-  //     sourceSm.setAttribute('media', '(min-width: 768px)')
-  //     pictureElement.appendChild(sourceSm)
-
-  //     const sourceXs = document.createElement('source')
-  //     sourceXs.setAttribute('src', product.images.xs.src)
-  //     sourceXs.setAttribute('type', 'image/webp')
-  //     sourceXs.setAttribute('media', '(min-width: 600px)')
-  //     pictureElement.appendChild(sourceXs)
-
-  //     const image = document.createElement('img')
-  //     image.setAttribute('src', product.images.lg.src)
-  //     image.setAttribute('alt', product.images.lg.alt)
-  //     image.setAttribute('title', product.images.lg.title)
-  //     pictureElement.appendChild(image)
-
-  //     const productContent = document.createElement('div')
-  //     productContent.classList.add('product-content')
-  //     cartProduct.appendChild(productContent)
-
-  //     const productTitle = document.createElement('div')
-  //     productTitle.classList.add('product-title')
-  //     productContent.appendChild(productTitle)
-
-  //     const titleElement = document.createElement('h3')
-  //     titleElement.textContent = product.title
-  //     productTitle.appendChild(titleElement)
-
-  //     const plusMinusButtonContainer = document.createElement('div')
-  //     plusMinusButtonContainer.classList.add('plus-minus-button')
-  //     productContent.appendChild(plusMinusButtonContainer)
-
-  //     const plusMinusButton = document.createElement('plus-minus-button-component')
-  //     plusMinusButtonContainer.appendChild(plusMinusButton)
-
-  //     const removeButton = document.createElement('div')
-  //     removeButton.classList.add('remove-button')
-  //     removeButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" /></svg>'
-
-  //     productContent.appendChild(removeButton)
-  //   })
-  // }
-
-    const productsQuantity = this.loadData.length()
-
-    if (productsQuantity === 0) {
+    if (products.length === 0) {
       const cartProducts = this.shadow.querySelector('.cart-products')
       const cartMessage = document.createElement('div')
       cartMessage.classList.add('cart-message')
       cartProducts.appendChild(cartMessage)
 
-      const cartMessageElement = document.createElement('p')
-      cartMessageElement.textContent = 'No has añadido actividades al carrito'
+      const cartMessageText = document.createElement('p')
+      cartMessageText.textContent = 'No has añadido actividades al carrito'
+      cartMessage.appendChild(cartMessageText)
+
+      const cartMessageImage = document.createElement('div')
+      cartMessageImage.classList.add('cart-message-image')
+      cartMessageImage.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>cart-outline</title><path d="M17,18A2,2 0 0,1 19,20A2,2 0 0,1 17,22C15.89,22 15,21.1 15,20C15,18.89 15.89,18 17,18M1,2H4.27L5.21,4H20A1,1 0 0,1 21,5C21,5.17 20.95,5.34 20.88,5.5L17.3,11.97C16.96,12.58 16.3,13 15.55,13H8.1L7.2,14.63L7.17,14.75A0.25,0.25 0 0,0 7.42,15H19V17H7C5.89,17 5,16.1 5,15C5,14.65 5.09,14.32 5.24,14.04L6.6,11.59L3,4H1V2M7,18A2,2 0 0,1 9,20A2,2 0 0,1 7,22C5.89,22 5,21.1 5,20C5,18.89 5.89,18 7,18M16,11L18.78,6H6.14L8.5,11H16Z" /></svg>'
+      cartMessage.appendChild(cartMessageImage)
     }
 
-    if (productsQuantity > 0) {
-      const cartProducts = this.shadow.querySelector('.cart-products')
+    if (products.length > 0) {
       const checkoutComponent = document.createElement('checkout-form-component')
-      cartProducts.appendChild(checkoutComponent)
+      cart.appendChild(checkoutComponent)
     }
-  }
 
-  async addProduct (product) {
-    const cartProducts = this.shadow.querySelector('.cart-products')
-    const cartProduct = document.createElement('div')
-    cartProduct.classList.add('cart-product')
-    cartProducts.appendChild(cartProduct)
+    products.forEach(product => {
+      const cartProduct = document.createElement('div')
+      cartProduct.classList.add('cart-product')
+      cartProducts.appendChild(cartProduct)
 
-    const productPicture = document.createElement('div')
-    productPicture.classList.add('product-picture')
-    cartProduct.appendChild(productPicture)
+      const productPicture = document.createElement('div')
+      productPicture.classList.add('product-picture')
+      cartProduct.appendChild(productPicture)
 
-    const pictureElement = document.createElement('picture')
-    productPicture.appendChild(pictureElement)
+      const pictureElement = document.createElement('picture')
+      productPicture.appendChild(pictureElement)
 
-    const sourceLg = document.createElement('source')
-    sourceLg.setAttribute('src', product.images.lg.src)
-    sourceLg.setAttribute('type', 'image/webp')
-    sourceLg.setAttribute('media', '(min-width: 1200px)')
-    pictureElement.appendChild(sourceLg)
+      const sourceLg = document.createElement('source')
+      sourceLg.setAttribute('src', product.images.lg.src)
+      sourceLg.setAttribute('type', 'image/webp')
+      sourceLg.setAttribute('media', '(min-width: 1200px)')
+      pictureElement.appendChild(sourceLg)
 
-    const sourceMd = document.createElement('source')
-    sourceMd.setAttribute('src', product.images.md.src)
-    sourceMd.setAttribute('type', 'image/webp')
-    sourceMd.setAttribute('media', '(min-width: 992px)')
-    pictureElement.appendChild(sourceMd)
+      const sourceMd = document.createElement('source')
+      sourceMd.setAttribute('src', product.images.md.src)
+      sourceMd.setAttribute('type', 'image/webp')
+      sourceMd.setAttribute('media', '(min-width: 992px)')
+      pictureElement.appendChild(sourceMd)
 
-    const sourceSm = document.createElement('source')
-    sourceSm.setAttribute('src', product.images.sm.src)
-    sourceSm.setAttribute('type', 'image/webp')
-    sourceSm.setAttribute('media', '(min-width: 768px)')
-    pictureElement.appendChild(sourceSm)
+      const sourceSm = document.createElement('source')
+      sourceSm.setAttribute('src', product.images.sm.src)
+      sourceSm.setAttribute('type', 'image/webp')
+      sourceSm.setAttribute('media', '(min-width: 768px)')
+      pictureElement.appendChild(sourceSm)
 
-    const sourceXs = document.createElement('source')
-    sourceXs.setAttribute('src', product.images.xs.src)
-    sourceXs.setAttribute('type', 'image/webp')
-    sourceXs.setAttribute('media', '(min-width: 600px)')
-    pictureElement.appendChild(sourceXs)
+      const sourceXs = document.createElement('source')
+      sourceXs.setAttribute('src', product.images.xs.src)
+      sourceXs.setAttribute('type', 'image/webp')
+      sourceXs.setAttribute('media', '(min-width: 600px)')
+      pictureElement.appendChild(sourceXs)
 
-    const image = document.createElement('img')
-    image.setAttribute('src', product.images.lg.src)
-    image.setAttribute('alt', product.images.lg.alt)
-    image.setAttribute('title', product.images.lg.title)
-    pictureElement.appendChild(image)
+      const image = document.createElement('img')
+      image.setAttribute('src', product.images.lg.src)
+      image.setAttribute('alt', product.images.lg.alt)
+      image.setAttribute('title', product.images.lg.title)
+      pictureElement.appendChild(image)
 
-    const productContent = document.createElement('div')
-    productContent.classList.add('product-content')
-    cartProduct.appendChild(productContent)
+      const productContent = document.createElement('div')
+      productContent.classList.add('product-content')
+      cartProduct.appendChild(productContent)
 
-    const productTitle = document.createElement('div')
-    productTitle.classList.add('product-title')
-    productContent.appendChild(productTitle)
+      const productTitle = document.createElement('div')
+      productTitle.classList.add('product-title')
+      productContent.appendChild(productTitle)
 
-    const titleElement = document.createElement('h3')
-    titleElement.textContent = product.title
-    productTitle.appendChild(titleElement)
+      const titleElement = document.createElement('h3')
+      titleElement.textContent = product.title
+      productTitle.appendChild(titleElement)
 
-    const plusMinusButtonContainer = document.createElement('div')
-    plusMinusButtonContainer.classList.add('plus-minus-button')
-    productContent.appendChild(plusMinusButtonContainer)
+      const plusMinusButtonContainer = document.createElement('div')
+      plusMinusButtonContainer.classList.add('plus-minus-button')
+      productContent.appendChild(plusMinusButtonContainer)
 
-    const plusMinusButton = document.createElement('plus-minus-button-component')
-    plusMinusButtonContainer.appendChild(plusMinusButton)
+      const plusMinusButton = document.createElement('plus-minus-button-component')
+      plusMinusButton.setAttribute('product-id', product.id)
+      plusMinusButton.setAttribute('quantity', product.quantity)
+      plusMinusButtonContainer.appendChild(plusMinusButton)
 
-    const removeButton = document.createElement('div')
-    removeButton.classList.add('remove-button')
-    removeButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" /></svg>'
+      const removeButton = document.createElement('div')
+      removeButton.classList.add('remove-button')
+      removeButton.setAttribute('data-product-id', product.id)
+      removeButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z" /></svg>'
 
-    productContent.appendChild(removeButton)
-  }
-
-  async sendForm () {
-    const form = this.shadow.querySelector('form')
-    const formData = new FormData(form)
-    const formDataJson = Object.fromEntries(formData.entries())
-
-    const response = await fetch('http://localhost:5173/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formDataJson)
+      productContent.appendChild(removeButton)
     })
+  }
 
-    const message = response.json()
+  async addProduct (id) {
+    const response = await fetch(`/src/data/products/${id}.json`)
+    const product = await response.json()
+    this.data.push(product)
 
-    document.dispatchEvent(new CustomEvent('message', {
-      detail: {
-        text: message
-      }
-    }))
+    this.render()
+  }
+
+  async removeProduct (id) {
+    store.dispatch(removeProduct(id))
+    this.data = this.data.filter(product => product.id !== id)
+    this.render()
   }
 }
 

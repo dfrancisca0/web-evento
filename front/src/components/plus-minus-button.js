@@ -1,3 +1,6 @@
+import { store } from '../redux/store.js'
+import { addProduct } from '../redux/cart-slice.js'
+
 class PlusMinusButton extends HTMLElement {
   constructor () {
     super()
@@ -5,6 +8,8 @@ class PlusMinusButton extends HTMLElement {
   }
 
   connectedCallback () {
+    this.productId = this.getAttribute('product-id')
+
     this.render()
   }
 
@@ -64,10 +69,20 @@ class PlusMinusButton extends HTMLElement {
     plusMinusButton.addEventListener('click', event => {
       if (event.target.closest('.plus')) {
         productQuantity.value = (parseInt(productQuantity.value)) + 1
+
+        store.dispatch(addProduct({
+          id: this.productId,
+          quantity: parseInt(productQuantity.value)
+        }))
       }
 
       if (event.target.closest('.minus') && productQuantity.value > 1) {
         productQuantity.value = (parseInt(productQuantity.value)) - 1
+
+        store.dispatch(addProduct({
+          id: this.productId,
+          quantity: parseInt(productQuantity.value)
+        }))
       }
     })
   }

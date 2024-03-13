@@ -175,7 +175,6 @@ class CheckoutForm extends HTMLElement {
     }
     const formData = new FormData(form)
     const formDataJson = Object.fromEntries(formData.entries())
-    formDataJson.products = store.getState().cart.cartProducts
 
     const response = await fetch('http://localhost:5173/', {
       method: 'POST',
@@ -228,47 +227,12 @@ class CheckoutForm extends HTMLElement {
           return
         }
 
-    //     for (const [validator, validation] of Object.entries(inputValidations)) {
-    //       let regex = validators[validator]
-
-    //       if (validator === 'minLength') {
-    //         regex = validators[validator](validation.value)
-    //       }
-
-    //       if (validator === 'maxLength') {
-    //         regex = validators[validator](validation.value)
-    //       }
-
-    //       const valid = element.value.match(regex)
-
-    //       if (valid === null) {
-    //         element.classList.add('validation-error')
-    //         const label = element.closest('.form-element').querySelector('.form-element-label')
-
-    //         if (!label.querySelector('.validation-error')) {
-    //           const messageContainer = document.createElement('span')
-    //           messageContainer.classList.add('validation-error')
-    //           messageContainer.textContent = validation.message
-    //           label.appendChild(messageContainer)
-    //         }
-
-    //         validForm = false
-    //       } else {
-    //         element.classList.remove('validation-error')
-    //         element.closest('.form-element').querySelector('.validation-error')?.remove()
-    //       }
-    //     }
-    //   }
-    // }
-
         for (const [validator, validation] of Object.entries(inputValidations)) {
-
           let regex = validators[validator]
 
           if (validator === 'minLength') {
             regex = validators[validator](validation.value)
           }
-
           if (validator === 'maxLength') {
             regex = validators[validator](validation.value)
           }
@@ -276,24 +240,20 @@ class CheckoutForm extends HTMLElement {
           const valid = element.value.match(regex)
 
           if (valid === null) {
-      
-            const validationMessage = element.dataset.validateMessage
             element.classList.add('validation-error')
-
             const label = element.closest('.form-element').querySelector('.form-element-label')
 
-            if (!label.querySelector('.validation-message')) {
-              const validationMessageSpan = document.createElement('span')
-              validationMessageSpan.classList.add('validation-message')
-              validationMessageSpan.textContent = validationMessage
-
-              label.appendChild(validationMessageSpan)
+            if (!label.querySelector('.validation-error')) {
+              const validationMessageContainer = document.createElement('span')
+              validationMessageContainer.classList.add('validation-error')
+              validationMessageContainer.textContent = validation.message
+              label.appendChild(validationMessageContainer)
             }
             validForm = false
           } else {
             element.classList.remove('validation-error')
 
-            const validationMessageSpan = element.closest('.form-element').querySelector('.validation-message')
+            const validationMessageSpan = element.closest('.form-element').querySelector('.validation-error')
 
             if (validationMessageSpan) {
               validationMessageSpan.remove()

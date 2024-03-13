@@ -1,3 +1,6 @@
+import { store } from '../redux/store.js'
+import { addProduct, removeProduct } from '../redux/cart-slice.js'
+
 class AddButton extends HTMLElement {
   constructor () {
     super()
@@ -7,6 +10,7 @@ class AddButton extends HTMLElement {
   }
 
   connectedCallback () {
+    this.productId = this.getAttribute('product-id')
     document.addEventListener('add-element', this.handleAddElement.bind(this))
 
     this.render()
@@ -160,28 +164,46 @@ class AddButton extends HTMLElement {
     const button = this.shadow.querySelector('button')
 
     button.addEventListener('click', () => {
-      this.addElement()
+      if (button.classList.contains('active')) {
+        button.classList.remove('active')
+        this.removeElement()
+      } else {
+        button.classList.add('active')
+        this.addElement()
+      }
     })
   }
 
   addElement () {
-    const button = this.shadow.querySelector('button')
-
-    button.classList.toggle('active')
-
-    if (button.classList.contains('active')) {
-      document.dispatchEvent(new CustomEvent('message', {
-        detail: {
-          text: 'Se ha añadido la actividad al carrito'
-        }
-      }))
-    } else {
-      document.dispatchEvent(new CustomEvent('message', {
-        detail: {
-          text: 'Se ha removido la actividad al carrito'
-        }
-      }))
+    const product = {
+      id: this.productId,
+      quantity: 1
     }
+    store.dispatch(addProduct(product))
+    document.dispatchEvent(new CustomEvent('message', {
+      detail: {
+        text: 'Se ha añadido la actividad al carrito'
+      }
+    }))
+
+    document.dispatchEvent(new CustomEvent('message', {
+      detail: {
+        text: 'Se ha añadido la actividad al carrito'
+      }
+    }))
+  }
+
+  removeElement () {
+    const product = {
+      id: this.productId
+    }
+    store.dispatch(removeProduct(product))
+
+    document.dispatchEvent(new CustomEvent('message', {
+      detail: {
+        text: 'Se ha removido la actividad al carrito'
+      }
+    }))
   }
 }
 
