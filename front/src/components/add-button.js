@@ -10,6 +10,15 @@ class AddButton extends HTMLElement {
   }
 
   connectedCallback () {
+    this.unsubscribe = store.subscribe(() => {
+      const currentState = store.getState()
+      const cartProduct = currentState.cart.cartProducts.some(element => element.id === this.product.id)
+
+      if (!cartProduct) {
+        this.shadow.querySelector('button').classList.remove('active')
+      }
+    })
+
     this.productId = this.getAttribute('product-id')
     document.addEventListener('add-element', this.handleAddElement.bind(this))
 
