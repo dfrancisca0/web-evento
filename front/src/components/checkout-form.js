@@ -1,3 +1,5 @@
+import { store } from '../redux/store.js'
+
 class CheckoutForm extends HTMLElement {
   constructor () {
     super()
@@ -175,6 +177,7 @@ class CheckoutForm extends HTMLElement {
     }
     const formData = new FormData(form)
     const formDataJson = Object.fromEntries(formData.entries())
+    formDataJson.products = store.getState().cart.cartProducts
 
     const response = await fetch('http://localhost:5173/', {
       method: 'POST',

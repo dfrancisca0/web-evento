@@ -12,7 +12,7 @@ class AddButton extends HTMLElement {
   connectedCallback () {
     this.unsubscribe = store.subscribe(() => {
       const currentState = store.getState()
-      const cartProduct = currentState.cart.cartProducts.some(element => element.id === this.product.id)
+      const cartProduct = currentState.cart.cartProducts.some(element => element.id === this.productId)
 
       if (!cartProduct) {
         this.shadow.querySelector('button').classList.remove('active')
